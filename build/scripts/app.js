@@ -81,14 +81,14 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/assets/scripts/app.ts");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/assets/scripts/app.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/assets/scripts/app.ts":
+/***/ "./src/assets/scripts/app.js":
 /*!***********************************!*\
-  !*** ./src/assets/scripts/app.ts ***!
+  !*** ./src/assets/scripts/app.js ***!
   \***********************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -103,18 +103,18 @@ Object(_utils_numberFormater_js__WEBPACK_IMPORTED_MODULE_0__["default"])();
 /**
  * Аккордион
  */
-var accordion = new _components_accordion__WEBPACK_IMPORTED_MODULE_1__["default"]();
-accordion.init({
-    selector: '.j-accordion',
-    selectorParentData: 'data-item',
-    selectorBtnData: 'data-btn',
-    selectorBodyData: 'data-body',
-    activeClassParent: 'accordion__item_active',
-    activeClassBtn: 'accordion__btn_active',
-    activeClassBody: 'accordion__body_active',
-    closeOthers: true
-});
 
+const accordion = new _components_accordion__WEBPACK_IMPORTED_MODULE_1__["default"]();
+accordion.init({
+  selector: '.j-accordion',
+  selectorParentData: 'data-item',
+  selectorBtnData: 'data-btn',
+  selectorBodyData: 'data-body',
+  activeClassParent: 'accordion__item_active',
+  activeClassBtn: 'accordion__btn_active',
+  activeClassBody: 'accordion__body_active',
+  closeOthers: true
+});
 
 /***/ }),
 
@@ -324,7 +324,7 @@ class Accordion {
     console.log(nightboursList); // if (this.defaultOptions.closeOthers === true) {
     //   const itemActivies = item.querySelectorAll(`
     //     .${this.defaultOptions.activeClassParent},
-    //     .${this.defaultOptions.activeClassBtn},
+    //     .${this.defaultOptions.activeClassBtn},K
     //     .${this.defaultOptions.activeClassBody}`);
     // console.log(itemActivies);
     //

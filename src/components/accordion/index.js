@@ -1,5 +1,4 @@
 class Accordion {
-
   constructor() {
     // Опции по умолчанию
     this.defaultOptions = {
@@ -185,7 +184,7 @@ class Accordion {
     // if (this.defaultOptions.closeOthers === true) {
     //   const itemActivies = item.querySelectorAll(`
     //     .${this.defaultOptions.activeClassParent},
-    //     .${this.defaultOptions.activeClassBtn},
+    //     .${this.defaultOptions.activeClassBtn},K
     //     .${this.defaultOptions.activeClassBody}`);
 
       // console.log(itemActivies);

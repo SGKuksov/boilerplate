@@ -10,7 +10,6 @@ const { fonts } = require('./fonts');
 const { video } = require('./video');
 const { svgsprite } = require('./svgsprite');
 const { svgspritehtml } = require('./svgspritehtml');
-const { copyStatic } = require('./copyStatic');
 
 const serve = cb => {
   browserSync.init({
@@ -73,11 +72,6 @@ const serve = cb => {
   watch(config.svgsprite.input).on(
     'add',
     series(svgsprite, svgspritehtml, browserSync.reload)
-  );
-
-  watch(config.static.watch).on(
-    'add',
-    series(copyStatic, browserSync.reload)
   );
   
 

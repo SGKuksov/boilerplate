@@ -1,4 +1,4 @@
-const {errorHandler} = require('errorhandler');
+const { errorHandler } = require('errorhandler');
 const notify = require('gulp-notify');
 const resolve = require('path').resolve;
 const build = resolve(__dirname, '../build');
@@ -18,11 +18,11 @@ module.exports = {
     watch: `build`
   },
   scripts: {
-    input: resolve(__dirname, '../src/assets/scripts/app.ts'),
+    input: resolve(__dirname, '../src/assets/scripts/app.js'),
     watch: [
-      `src/assets/**/*.{js,ts}`,
-      `src/blocks/**/*.{js,ts}`,
-      `src/components/**/*.{js,ts}`
+      `src/assets/**/*.js`,
+      `src/blocks/**/*.js`,
+      `src/components/**/*.js`
     ],
     output: resolve(__dirname, '../build/scripts')
   },
@@ -74,11 +74,8 @@ module.exports = {
     ]
   },
   static: {
-    input: [`src/static/**/*`],
-    output: `build/`,
-    watch: [
-      `src/static/**/*`,
-    ]
+    input: `src/static/**/*.*`,
+    output: `build/`
   },
   NODE_ENV: process.env.NODE_ENV || 'development', // or production
   isProduction: this.NODE_ENV === 'production'
