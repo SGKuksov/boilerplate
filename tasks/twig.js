@@ -1,57 +1,57 @@
 /* eslint-disable import/no-extraneous-dependencies */
-const { src, dest } = require("gulp");
-const plumber = require("gulp-plumber");
-const prettyHtml = require("gulp-pretty-html");
-const twig = require("gulp-twig");
-const gulpif = require("gulp-if");
-const { reload } = require("browser-sync").create();
-const fs = require("fs");
-const config = require("./config");
-const { dump } = require("./utils/dump");
-const isDev = process.env.NODE_ENV === "development";
+const { src, dest } = require('gulp');
+const plumber = require('gulp-plumber');
+const prettyHtml = require('gulp-pretty-html');
+const twig = require('gulp-twig');
+const gulpif = require('gulp-if');
+const { reload } = require('browser-sync').create();
+const fs = require('fs');
+const critical = require('critical').stream;
+const criticalConfig = require('./critical.config.js');
+const config = require('./config');
+const { dump } = require('./utils/dump');
+
+const isDev = process.env.NODE_ENV === 'development';
 
 const functions = [
   {
-    name: "load",
+    name: 'load',
     func: file => {
-      const contents = fs.readFileSync(
-        `src/static/data/${ file }.json`,
-        "utf8"
-      );
+      const contents = fs.readFileSync(`src/static/data/${file}.json`, 'utf8');
 
       return JSON.parse(contents);
     }
   },
   {
-    name: "dump",
+    name: 'dump',
     func: dump
   },
   {
-    name: "isDev",
+    name: 'isDev',
     func: () => isDev
   },
   {
-    name: "version",
+    name: 'version',
     func: () => new Date().getTime()
   }
 ];
 
 const filters = [
   {
-    name: "customFilter",
-    func: function(args) {
+    name: 'customFilter',
+    func(args) {
       // console.log(arguments);
 
-      return args + " the filter";
+      return `${args} the filter`;
     }
   }
-]
+];
 
-const compileTwig = cb => {
+const compileTwig = () => {
   const prettyHtmlConfig = {
     indent_size: 4,
-    indent_char: " ",
-    unformatted: ["code", "em", "strong", "span", "i", "b", "br"],
+    indent_char: ' ',
+    unformatted: ['code', 'em', 'strong', 'span', 'i', 'b', 'br'],
     content_unformatted: []
   };
 
@@ -61,14 +61,13 @@ const compileTwig = cb => {
       twig({
         // base: '', // views base folder
         functions,
-        filters,
+        filters
       })
     )
     .pipe(gulpif(isDev, prettyHtml(prettyHtmlConfig)))
+    .pipe(gulpif(!isDev, critical(criticalConfig)))
     .pipe(dest(config.pages.output))
     .pipe(reload({ stream: true }));
-
-  // cb();
 };
 
 exports.twig = compileTwig;

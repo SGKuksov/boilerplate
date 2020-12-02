@@ -11,42 +11,25 @@ const { img } = require('./tasks/img');
 const { fonts } = require('./tasks/fonts');
 const { video } = require('./tasks/video');
 const { serve } = require('./tasks/serve');
-// const { injects } = require('./tasks/injects');
-const { static } = require('./tasks/static');
+const { copyStatic } = require('./tasks/static');
 
 const isDev = process.env.NODE_ENV === 'development';
 
 if (isDev) {
   exports.default = series(
     clean,
-    parallel(
-      img,
-      fonts,
-      twig,
-      scss,
-      svgsprite,
-      javascript,
-      video
-    ),
-    static,
+    parallel(img, fonts, scss, svgsprite, javascript, video),
+    twig,
+    copyStatic,
     svgspritehtml,
-    // injects,
     serve
   );
 } else {
   exports.default = series(
     clean,
-    parallel(
-      img,
-      fonts,
-      twig,
-      svgsprite,
-      javascript,
-      video,
-      scss
-    ),
-    static,
+    parallel(img, fonts, svgsprite, javascript, video, scss),
+    twig,
+    copyStatic,
     svgspritehtml
-    // injects,
   );
 }

@@ -1,4 +1,23 @@
+interface AccordionOptions {
+  selector: string;
+  selectorParentData: string;
+  selectorBtnData: string;
+  selectorBodyData: string;
+  activeClassParent: string;
+  activeClassBtn: string;
+  activeClassBody: string;
+  closeOthers: boolean;
+}
+
 class Accordion {
+  private readonly defaultOptions: AccordionOptions
+  private accordionList: HTMLElement[]
+  private wrapper: HTMLElement;
+  private contentWrapper: HTMLElement;
+  private height: number;
+  // @ts-ignore
+  private state: string;
+
   constructor() {
     // Опции по умолчанию
     this.defaultOptions = {
@@ -17,24 +36,24 @@ class Accordion {
    * Иницализирует модуль
    * @param {object} options - опции аккордиона
    */
-  init(options) {
+  init(options: AccordionOptions) {
     // применение опций из настроек
     this.optionsUpdate(options);
-    this.accordionList(this.defaultOptions.selector);
+    this.getAccordionList(this.defaultOptions.selector);
   }
 
   /**
    * Получает список аккордионов
    * @param {object} wrapper - обёртка аккордиона
    */
-  accordionList(wrapper) {
+  getAccordionList(wrapper: string): void {
     this.accordionList = Array.from(document.querySelectorAll(wrapper));
 
     if (!this.accordionList.length) {
       return;
     }
 
-    this.accordionList.forEach(item => {
+    this.accordionList.forEach((item: HTMLElement) => {
       this.bindEvents(item);
     });
   }
@@ -43,8 +62,9 @@ class Accordion {
    * Навешивает обработчик событий
    * @param {object} item - аккордион
    */
-  bindEvents(item) {
-    item.addEventListener('click', event => {
+  bindEvents(item: HTMLElement) {
+    item.addEventListener('click', (event) => {
+      // @ts-ignore
       const btn = event.target.closest(`[data-${this.defaultOptions.selectorBtnData}]`);
 
       if (!btn) {
@@ -59,8 +79,9 @@ class Accordion {
       );
 
       // Получаем родителя
+      // @ts-ignore
       const parent = event.target.closest(`[data-${this.defaultOptions.selectorParentData}]`);
-      
+
       const isActive = btn.classList.contains(this.defaultOptions.activeClassBtn);
 
       if (isActive) {
@@ -71,7 +92,7 @@ class Accordion {
           this.close(parent, this.defaultOptions.activeClassParent);
         }
         if (body) {
-          this.close(body, this.defaultOptions.activeClassBody);
+          this.close(<HTMLElement>body, this.defaultOptions.activeClassBody);
         }
       } else {
         // Закрываем другие аккардеоны если нужно
@@ -86,33 +107,33 @@ class Accordion {
           this.open(parent, this.defaultOptions.activeClassParent);
         }
         if (body) {
-          this.open(body, this.defaultOptions.activeClassBody);
+          this.open(<HTMLElement>body, this.defaultOptions.activeClassBody);
         }
       }
     });
   }
 
-  nextItems(element, elementsList = []) {
-    const nextElement = element.nextElementSibling;
+  nextItems(element: HTMLElement, elementsList: HTMLElement[] = []) {
+    const nextElement: Element = element.nextElementSibling;
 
     if (nextElement) {
-      elementsList.push(nextElement);
-      this.nextItems(nextElement, elementsList);
+      elementsList.push(<HTMLElement>nextElement);
+      this.nextItems(<HTMLElement>nextElement, elementsList);
     }
     return elementsList;
   }
 
-  prevItems(element, elementsList = []) {
-    const prevElement = element.previousElementSibling;
+  prevItems(element: HTMLElement, elementsList: HTMLElement[] = []) {
+    const prevElement: Element = element.previousElementSibling;
 
     if (prevElement) {
-      elementsList.push(prevElement);
-      this.prevItems(prevElement, elementsList);
+      elementsList.push(<HTMLElement>prevElement);
+      this.prevItems(<HTMLElement>prevElement, elementsList);
     }
     return elementsList;
   }
 
-  nighboursItems(element) {
+  nighboursItems(element: HTMLElement) {
     return [...this.prevItems(element), ...this.nextItems(element)];
   }
 
@@ -121,7 +142,7 @@ class Accordion {
    * @param {object} element - текущий элемент
    * @param {object} elementClass -  перключаемый класс
    */
-  open(element, elementClass) {
+  open(element: HTMLElement, elementClass: string) {
     element.classList.add(elementClass);
   }
 
@@ -130,7 +151,7 @@ class Accordion {
    * @param {object} element - текущий элемент
    * @param {object} elementClass -  перключаемый класс
    */
-  close(element, elementClass) {
+  close(element: HTMLElement, elementClass: string) {
     element.classList.remove(elementClass);
   }
 
@@ -138,21 +159,23 @@ class Accordion {
    * Применяет пользовательские опции
    * @param {object} options - текущий элемент аккардиона
    */
-  optionsUpdate(options) {
+  optionsUpdate(options: AccordionOptions) {
     if (options) {
       for (const key in options) {
-        if (this.defaultOptions[key]) {
-          this.defaultOptions[key] = options[key];
-        } else {
-          console.log(`Опции: ${key}, нет для аккордиона`);
-        }
+        if (options.hasOwnProperty(key)) {
+          if (this.defaultOptions[key]) {
+            this.defaultOptions[key] = options[key];
+          } else {
+            console.log(`Опции: ${key}, нет для аккордиона`);
+          }
 
-        if (
-          key === 'selectorParentData' ||
-          key === 'selectorBtnData' ||
-          key === 'selectorBodyData'
-        ) {
-          this.defaultOptions[key] = this.defaultOptions[key].replace(/data-{1}/i, '');
+          if (
+            key === 'selectorParentData' ||
+            key === 'selectorBtnData' ||
+            key === 'selectorBodyData'
+          ) {
+            this.defaultOptions[key] = this.defaultOptions[key].replace(/data-{1}/i, '');
+          }
         }
       }
     }
@@ -175,29 +198,48 @@ class Accordion {
    * Если при открытии аккардеона другие нужно закрывать
    * @private
    */
-  closeOthers(item) {
-  
-    const nightboursList = this.nighboursItems(item);
-    
-    console.log(nightboursList);
-    
+  closeOthers(item: HTMLElement) {
+    const neighboursList = this.nighboursItems(item);
+
+    console.log(neighboursList);
+
     // if (this.defaultOptions.closeOthers === true) {
-    //   const itemActivies = item.querySelectorAll(`
+    //   const itemActives = item.querySelectorAll(`
     //     .${this.defaultOptions.activeClassParent},
     //     .${this.defaultOptions.activeClassBtn},K
     //     .${this.defaultOptions.activeClassBody}`);
+    // console.log(itemActives);
 
-      // console.log(itemActivies);
-      //
-      if (nightboursList.length) {
-        nightboursList.forEach(el => {
-          el.classList.remove(`${this.defaultOptions.activeClassParent}`);
-          el.classList.remove(`${this.defaultOptions.activeClassBtn}`);
-          el.classList.remove(`${this.defaultOptions.activeClassBody}`);
-        });
-      }
+    if (neighboursList.length) {
+      neighboursList.forEach(el => {
+        el.classList.remove(`${this.defaultOptions.activeClassParent}`);
+        el.classList.remove(`${this.defaultOptions.activeClassBtn}`);
+        el.classList.remove(`${this.defaultOptions.activeClassBody}`);
+      });
+    }
     // }
   }
 }
 
 export default Accordion;
+
+/**
+ * Пример использования
+ */
+
+// import Accordion from '../../components/accordion';
+
+/**
+ * Аккордион
+ */
+// const accordion = new Accordion();
+// accordion.init({
+//   selector: '.j-accordion',
+//   selectorParentData: 'data-item',
+//   selectorBtnData: 'data-btn',
+//   selectorBodyData: 'data-body',
+//   activeClassParent: 'accordion__item_active',
+//   activeClassBtn: 'accordion__btn_active',
+//   activeClassBody: 'accordion__body_active',
+//   closeOthers: true
+// });

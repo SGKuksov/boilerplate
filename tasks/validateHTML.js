@@ -5,7 +5,7 @@ const config = require('./config');
 
 const validate = cb => {
   return src('target/**/*.html')
-    .pipe(plumber(config.notify))
+    // .pipe(plumber(config.notify))
     .pipe(htmlValidator())
     .pipe(htmlValidator.reporter());
 

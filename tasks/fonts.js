@@ -5,7 +5,7 @@ const plumber = require('gulp-plumber');
 // const ttf2woff2 = require('gulp-ttf2woff2');
 const config = require('./config');
 
-const fonts = cb => {
+const fonts = () => {
   return (
     src(config.fonts.input)
       .pipe(plumber(config.notify))
@@ -16,8 +16,6 @@ const fonts = cb => {
       // .pipe(ttf2woff2())
       .pipe(dest(config.fonts.output))
   );
-
-  // cb();
 };
 
 exports.fonts = fonts;

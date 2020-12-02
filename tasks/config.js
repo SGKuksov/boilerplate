@@ -1,6 +1,7 @@
-const { errorHandler } = require('errorhandler');
+// const { errorHandler } = require('errorhandler');
 const notify = require('gulp-notify');
-const resolve = require('path').resolve;
+const { resolve } = require('path');
+
 const build = resolve(__dirname, '../build');
 
 module.exports = {
@@ -18,18 +19,18 @@ module.exports = {
     watch: `build`
   },
   scripts: {
-    input: resolve(__dirname, '../src/assets/scripts/app.js'),
+    input: resolve(__dirname, '../src/assets/scripts/main.ts'),
     watch: [
-      `src/assets/**/*.js`,
-      `src/blocks/**/*.js`,
-      `src/components/**/*.js`
+      `src/assets/**/*.{js,ts}`,
+      `src/blocks/**/*.{js,ts}`,
+      `src/components/**/*.{js,ts}`
     ],
     output: resolve(__dirname, '../build/scripts')
   },
   styles: {
     input: `src/assets/styles/app.scss`,
     watch: [
-      `src/assets/**/*.scss`,
+      `src/assets/styles/**/*.scss`,
       `src/blocks/**/*.scss`,
       `src/components/**/*.scss`
     ],
@@ -38,6 +39,7 @@ module.exports = {
   pages: {
     input: `src/pages/*.twig`,
     watch: [
+      `src/assets/layout/*.twig`,
       `src/pages/**/*.twig`,
       `src/blocks/**/*.twig`,
       `src/components/**/*.twig`,
@@ -69,9 +71,7 @@ module.exports = {
     input: `src/img/sprite/svg/*.svg`,
     output: `build/img/sprite/`,
     viewhtml: `build/`,
-    watch: [
-      `src/img/sprite/svg/*.svg`,
-    ]
+    watch: [`src/img/sprite/svg/*.svg`]
   },
   static: {
     input: `src/static/**/*.*`,
