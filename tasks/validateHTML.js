@@ -3,13 +3,13 @@ const { src, dest } = require('gulp');
 const htmlValidator = require('gulp-w3c-html-validator');
 const config = require('./config');
 
-const validate = cb => {
-  return src('target/**/*.html')
-    // .pipe(plumber(config.notify))
-    .pipe(htmlValidator())
-    .pipe(htmlValidator.reporter());
-
-  // cb();
+const validate = () => {
+  return (
+    src('target/**/*.html')
+      // .pipe(plumber(config.notify))
+      .pipe(htmlValidator())
+      .pipe(htmlValidator.reporter())
+  );
 };
 
 exports.validate = validate;

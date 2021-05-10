@@ -1,8 +1,5 @@
 // Вставка шрифтов
 
-@include font-face($font-name, 'open-sans-400', $font-regular, normal, woff2 woff ttf);
-@include font-face($font-name, 'open-sans-400italic', $font-regular, italic, woff2 woff ttf);
-@include font-face($font-name, 'open-sans-700', $font-bold, normal, woff2 woff ttf);
 @include font-face($font-second-name, 'pt-sans-400', $font-second-regular, normal, woff2 woff ttf);
 @include font-face($font-second-name, 'pt-sans-700', $font-second-bold, normal, woff2 woff ttf);
 

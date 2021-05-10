@@ -17,8 +17,9 @@ module.exports = {
   },
   rules: {
     'prettier/prettier': ['error'],
-    'no-param-reassign': 'off',
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'no-underscore-dangle': 'warn',
+    'import/prefer-default-export': 'off'
   }
 };

@@ -5,27 +5,13 @@ const prettyHtml = require('gulp-pretty-html');
 const twig = require('gulp-twig');
 const gulpif = require('gulp-if');
 const { reload } = require('browser-sync').create();
-const fs = require('fs');
 const critical = require('critical').stream;
 const criticalConfig = require('./critical.config.js');
 const config = require('./config');
-const { dump } = require('./utils/dump');
 
 const isDev = process.env.NODE_ENV === 'development';
 
 const functions = [
-  {
-    name: 'load',
-    func: file => {
-      const contents = fs.readFileSync(`src/static/data/${file}.json`, 'utf8');
-
-      return JSON.parse(contents);
-    }
-  },
-  {
-    name: 'dump',
-    func: dump
-  },
   {
     name: 'isDev',
     func: () => isDev

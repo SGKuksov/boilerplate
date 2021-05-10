@@ -11,7 +11,7 @@ const { video } = require('./video');
 const { svgsprite } = require('./svgsprite');
 const { svgspritehtml } = require('./svgspritehtml');
 
-const serve = cb => {
+const serve = () => {
   browserSync.init({
     server: config.output,
     startPath: 'index.html',
@@ -19,63 +19,27 @@ const serve = cb => {
     port: 8081
   });
 
-  watch(config.pages.watch).on(
-    'change',
-    series(twig, browserSync.reload)
-  );
+  watch(config.pages.watch).on('change', series(twig, browserSync.reload));
 
-  watch(config.styles.watch).on(
-    'change',
-    series(scss, browserSync.reload)
-  );
+  watch(config.styles.watch).on('change', series(scss, browserSync.reload));
 
-  watch(config.scripts.watch).on(
-    'change',
-    series(javascript, browserSync.reload)
-  );
+  watch(config.scripts.watch).on('change', series(javascript, browserSync.reload));
 
-  watch(config.img.input).on(
-    'change',
-    series(img, browserSync.reload)
-  );
+  watch(config.img.input).on('change', series(img, browserSync.reload));
 
-  watch(config.img.input).on(
-    'add',
-    series(img, browserSync.reload)
-  );
+  watch(config.img.input).on('add', series(img, browserSync.reload));
 
-  watch(config.video.input).on(
-    'change',
-    series(video, browserSync.reload)
-  );
+  watch(config.video.input).on('change', series(video, browserSync.reload));
 
-  watch(config.video.input).on(
-    'add',
-    series(video, browserSync.reload)
-  );
+  watch(config.video.input).on('add', series(video, browserSync.reload));
 
-  watch(config.fonts.input).on(
-    'change',
-    series(fonts, browserSync.reload)
-  );
+  watch(config.fonts.input).on('change', series(fonts, browserSync.reload));
 
-  watch(config.fonts.input).on(
-    'add',
-    series(fonts, browserSync.reload)
-  );
-  
-  watch(config.svgsprite.input).on(
-    'change',
-    series(svgsprite, svgspritehtml, browserSync.reload)
-  );
-  
-  watch(config.svgsprite.input).on(
-    'add',
-    series(svgsprite, svgspritehtml, browserSync.reload)
-  );
-  
+  watch(config.fonts.input).on('add', series(fonts, browserSync.reload));
 
-  cb();
+  watch(config.svgsprite.input).on('change', series(svgsprite, svgspritehtml, browserSync.reload));
+
+  watch(config.svgsprite.input).on('add', series(svgsprite, svgspritehtml, browserSync.reload));
 };
 
 exports.serve = serve;

@@ -18,7 +18,14 @@ const isDev = process.env.NODE_ENV === 'development';
 if (isDev) {
   exports.default = series(
     clean,
-    parallel(img, fonts, scss, svgsprite, javascript, video),
+    parallel(
+      img,
+      fonts,
+      scss,
+      svgsprite,
+      // javascript,
+      video
+    ),
     twig,
     copyStatic,
     svgspritehtml,

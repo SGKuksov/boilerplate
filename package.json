@@ -69,6 +69,7 @@
   },
   "dependencies": {
     "jquery": "^3.5.1",
+    "scroll-lock": "^2.1.5",
     "slick-carousel": "^1.8.1"
   }
 }

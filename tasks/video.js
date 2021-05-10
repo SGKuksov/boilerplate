@@ -3,12 +3,10 @@ const { src, dest } = require('gulp');
 const plumber = require('gulp-plumber');
 const config = require('./config');
 
-const video = cb => {
+const video = () => {
   return src(config.video.input)
     .pipe(plumber(config.notify))
     .pipe(dest(config.video.output));
-
-  // cb();
 };
 
 exports.video = video;

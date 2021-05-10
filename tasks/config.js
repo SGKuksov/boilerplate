@@ -19,21 +19,13 @@ module.exports = {
     watch: `build`
   },
   scripts: {
-    input: resolve(__dirname, '../src/assets/scripts/main.ts'),
-    watch: [
-      `src/assets/**/*.{js,ts}`,
-      `src/blocks/**/*.{js,ts}`,
-      `src/components/**/*.{js,ts}`
-    ],
+    input: resolve(__dirname, '../src/assets/scripts/main.js'), // Поменять на .ts
+    watch: [`src/assets/**/*.{js,ts}`, `src/blocks/**/*.{js,ts}`, `src/components/**/*.{js,ts}`],
     output: resolve(__dirname, '../build/scripts')
   },
   styles: {
     input: `src/assets/styles/app.scss`,
-    watch: [
-      `src/assets/styles/**/*.scss`,
-      `src/blocks/**/*.scss`,
-      `src/components/**/*.scss`
-    ],
+    watch: [`src/assets/styles/**/*.scss`, `src/blocks/**/*.scss`, `src/components/**/*.scss`],
     output: `build/css`
   },
   pages: {
@@ -42,7 +34,7 @@ module.exports = {
       `src/assets/layout/*.twig`,
       `src/pages/**/*.twig`,
       `src/blocks/**/*.twig`,
-      `src/components/**/*.twig`,
+      `src/components/**/*.twig`
     ],
     temp: `temp`,
     output: `build/`

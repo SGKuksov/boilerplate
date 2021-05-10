@@ -1,5 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
-const {src, dest} = require('gulp');
+const { src, dest } = require('gulp');
 const plumber = require('gulp-plumber');
 const config = require('./config');
 

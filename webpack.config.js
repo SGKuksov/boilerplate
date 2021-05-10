@@ -14,18 +14,18 @@ module.exports = {
   devtool: process.env.NODE_ENV === 'development' ? 'source-map' : false,
   module: {
     rules: [
-      {
-        test: /\.tsx?$/,
-        use: [
-          {
-            loader: 'ts-loader',
-            options: {
-              transpileOnly: false
-            }
-          }
-        ],
-        exclude: /node_modules/
-      },
+      // {
+      //   test: /\.tsx?$/,
+      //   use: [
+      //     {
+      //       loader: 'ts-loader',
+      //       options: {
+      //         transpileOnly: false
+      //       }
+      //     }
+      //   ],
+      //   exclude: /node_modules/
+      // },
       {
         test: /\.js$/,
         loader: 'babel-loader',
@@ -34,7 +34,11 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js', '.json'],
+    extensions: [
+      // '.tsx', '.ts',
+      '.js',
+      '.json'
+    ],
     alias: {
       '@': path.resolve(__dirname, 'src'),
       '@utils': path.resolve(__dirname, 'src/assets/scripts/utils/')

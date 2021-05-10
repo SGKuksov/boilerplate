@@ -16,7 +16,7 @@ const { reload } = browserSync;
 
 const isDev = process.env.NODE_ENV === 'development';
 
-const scss = cb => {
+const scss = () => {
   const plugins = [
     autoprefixer(),
     // mqpacker({
@@ -41,8 +41,6 @@ const scss = cb => {
     .pipe(gulpif(!isDev, rename('style.min.css')))
     .pipe(gulpif(!isDev, dest(config.styles.output)))
     .pipe(reload({ stream: true }));
-
-  // cb();
 };
 
 exports.scss = scss;
