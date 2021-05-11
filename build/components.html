@@ -68,6 +68,7 @@
 
 </html>
 
+
 <section class="breadcrumbs">
     <ul class="breadcrumbs__list">
         <li class="breadcrumbs__item">
@@ -356,4 +357,91 @@
             достаточно прост и быстр. Для дачного дома идеальное решение.
         </div>
     </blockquote>
+</div>
+
+<button data-modal-open="location">Открыть location</button>
+<button data-modal-open="test">Открыть test</button>
+
+<label class="checkbox ">
+    <input type="checkbox" class="checkbox__input" name="">
+
+    <span class="checkbox__custom-input"></span>
+
+    <span class="checkbox__text">
+            Текст текст текст <a href="#fff">Ссылка на документ</a> текст текст
+        </span>
+</label>
+
+<label class="checkbox ">
+    <input type="checkbox" class="checkbox__input" name="">
+
+    <span class="checkbox__custom-input"></span>
+
+    <span class="checkbox__text">
+            Текст текст текст <a href="#fff">Ссылка на документ</a> текст текст
+        </span>
+</label>
+
+
+<label class="radio ">
+    <input type="radio" class="radio__input" name="test">
+    <span class="radio__custom-input"></span>
+
+    <span class="radio__text">
+            Текст текст текст <a href="#fff">Ссылка на документ</a> текст текст
+        </span>
+</label>
+
+<label class="radio ">
+    <input type="radio" class="radio__input" name="test">
+    <span class="radio__custom-input"></span>
+
+    <span class="radio__text">
+            Текст текст текст <a href="#fff">Ссылка на документ</a> текст текст
+        </span>
+</label>
+
+
+<button data-dropdown-open="test">Открыть dropdown test</button>
+<div class="dropdown dropdown_left" data-dropdown="dropdown">
+    <button data-dropdown-open="dropdown">Открыть dropdown</button>
+
+    <div class="dropdown__content">
+        Текст текст текст <a href="#fff">Ссылка на документ</a> текст текст
+
+        <button data-dropdown-close>Х</button>
+    </div>
+</div>
+
+
+
+
+
+<div class="modal" data-modal="location">
+    <div class="modal__content" data-modal-content>
+        <button class="modal__close" data-modal-close> <svg width="16" height="16" class="icon ">
+                <use xlink:href="#burger-close-desktop"></use>
+            </svg>
+        </button>
+
+        <div class="modal__content-header">
+            Выберите регион
+        </div>
+
+        <div class="modal__content-body">
+
+            <div class="modal-location">
+                <a href="#" class="modal-location__item">С-Петербург и Ленобласть</a>
+                <a href="#" class="modal-location__item">Череповец</a>
+                <a href="#" class="modal-location__item">Вологодская обл.</a>
+                <a href="#" class="modal-location__item">Карелия</a>
+                <a href="#" class="modal-location__item">Новгородская обл.</a>
+                <a href="#" class="modal-location__item">Псковская обл.</a>
+
+                <button data-modal-close>Закрыть</button>
+                <button>Отправить</button>
+            </div>
+
+        </div>
+    </div>
 </div>

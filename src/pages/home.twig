@@ -1,4 +1,9 @@
 {% extends '../assets/layout/base.twig' %}
+{% from '../components/checkbox/checkbox.twig' import checkbox %}
+{% from '../components/radio/radio.twig' import radio %}
+{% from '../components/dropdown/dropdown.twig' import dropdown %}
+{% from '../components/form/form.twig' import form %}
+
 
 {% block body %}
     {% set title = 'Главная - home' %}
@@ -9,12 +14,50 @@
 
     <button data-modal-open="location">Открыть location</button>
     <button data-modal-open="test">Открыть test</button>
+    <button data-modal-open="test1">Открыть test1</button>
+
+    <hr>
+
+    {{ checkbox({
+        text: 'Текст текст текст <a href="#fff">Ссылка на документ</a> текст текст'
+    }) }}
+    {{ checkbox({
+        text: 'Текст текст текст <a href="#fff">Ссылка на документ</a> текст текст'
+    }) }}
+
+    <hr>
+
+    {{ radio({
+        name: 'test',
+        text: 'Текст текст текст <a href="#fff">Ссылка на документ</a> текст текст'
+    }) }}
+    {{ radio({
+        name: 'test',
+        text: 'Текст текст текст <a href="#fff">Ссылка на документ</a> текст текст'
+    }) }}
+
+    <hr>
+
+    <button data-dropdown-open="test">Открыть dropdown test</button>
+    {{ dropdown({
+        id: 'dropdown',
+        trigger: '<button data-dropdown-open="dropdown">Открыть dropdown</button>',
+        type: 'right',
+        content: 'Текст текст текст <a href="#fff">Ссылка на документ</a> текст текст'
+    }) }}
+
+    <hr>
+
+    {{ form({
+        id: 'auth'
+    }) }}
 {% endblock %}
+
 
 {% block modal %}
     {% include '../components/modal/modal-location.twig' %}
 {% endblock %}
 
-{% block script %}
 
+{% block script %}
 {% endblock %}

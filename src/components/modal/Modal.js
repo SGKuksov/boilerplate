@@ -35,34 +35,34 @@ function showModal(id) {
   const modal = document.querySelector(selector);
 
   if (!modal) return;
-  modal.classList.add('modal--open');
+  modal.classList.add('modal_open');
 
   setTimeout(() => {
-    modal.classList.add('modal--visible');
+    modal.classList.add('modal_visible');
   }, 300);
 }
 
 function hideModal(modal) {
-  modal.classList.remove('modal--visible');
+  modal.classList.remove('modal_visible');
 
   setTimeout(() => {
-    modal.classList.remove('modal--open');
+    modal.classList.remove('modal_open');
   }, 200);
 }
 
 function showOverlay(overlay) {
-  overlay.classList.add('modal-overlay--open');
+  overlay.classList.add('modal-overlay_open');
 
   setTimeout(() => {
-    overlay.classList.add('modal-overlay--visible');
+    overlay.classList.add('modal-overlay_visible');
   }, 300);
 }
 
 function hideOverlay(overlay) {
-  overlay.classList.remove('modal-overlay--visible');
+  overlay.classList.remove('modal-overlay_visible');
 
   setTimeout(() => {
-    overlay.classList.remove('modal-overlay--open');
+    overlay.classList.remove('modal-overlay_open');
   }, 500);
 }
 
@@ -80,6 +80,14 @@ const Modal = (type = 'default') => {
   }
 
   function open(id) {
+    // TODO
+    // Проверить существует ли модалки и попробовать ее получение из ajax, из атрибута
+    // data-modal-content // Строка
+    // data-modal-content-ajax // Урл запроса для ajax
+    // data-modal-content-base64 // Строка base64. Разобрать и вывести в контент
+    // Добавить событие открытия
+    // Добавить событие закрытия
+
     if (_type === 'default') {
       showOverlay(_overlay);
     }
@@ -100,13 +108,16 @@ const Modal = (type = 'default') => {
     }, 200);
   }
 
-  function closeAllModals() {
+  function closeAll() {
     const selector = `[data-modal]`;
     const modals = Array.from(document.querySelectorAll(selector));
 
     modals.forEach(item => {
       close(item);
+      enablePageScroll(item);
     });
+
+    clearQueueScrollLocks();
   }
 
   function documentClickHandler(e) {
@@ -118,7 +129,7 @@ const Modal = (type = 'default') => {
       const closeBtn = target.closest('[data-modal-close]');
 
       if (!currentModal || closeBtn) {
-        closeAllModals();
+        closeAll();
         _isOpen = false;
       }
 
@@ -142,7 +153,7 @@ const Modal = (type = 'default') => {
 
   function documentKeyupHandler(e) {
     if (e.key === 'Escape') {
-      closeAllModals();
+      closeAll();
       _isOpen = false;
     }
   }

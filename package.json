@@ -68,6 +68,7 @@
     "webpack-stream": "^5.2.1"
   },
   "dependencies": {
+    "is_js": "^0.9.0",
     "jquery": "^3.5.1",
     "scroll-lock": "^2.1.5",
     "slick-carousel": "^1.8.1"

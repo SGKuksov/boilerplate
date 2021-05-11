@@ -1,15 +1,15 @@
 // Нормализация
-@import "./normalize";
+@import './normalize';
 
 // Переменные
-@import "./variables";
+@import './variables';
 
 // Функции
-@import "./functions";
+@import './functions';
 
 // Миксины
-@import "./mixins/mixins";
-@import "./mixins/font-face-generator";
+@import './mixins/mixins';
+@import './mixins/font-face-generator';
 
 // Breakpoints
 @import './breakpoints';
@@ -22,11 +22,12 @@
 @import './grid-exemple';
 
 // Default tags
-@import "./global-tags";
+@import './global-tags';
+@import './helpers';
 
 // Libs
 @import './libs/swiper.min.scss';
 
 
 // Components
-@import "../../components/components";
+@import '../../components/components';

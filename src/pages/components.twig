@@ -4,6 +4,10 @@
     theme_color: '#007B3B'
 } %}
 
+{% from '../components/checkbox/checkbox.twig' import checkbox %}
+{% from '../components/radio/radio.twig' import radio %}
+{% from '../components/dropdown/dropdown.twig' import dropdown %}
+
 {% block body %}
     {% include '../components/breadcrumbs/breadcrumbs.twig' with {
         modify: '',
@@ -20,6 +24,37 @@
     } %}
 
     {% include '../components/reviews/reviews.twig' %}
+
+    <button data-modal-open="location">Открыть location</button>
+    <button data-modal-open="test">Открыть test</button>
+
+    {{ checkbox({
+        text: 'Текст текст текст <a href="#fff">Ссылка на документ</a> текст текст'
+    }) }}
+    {{ checkbox({
+        text: 'Текст текст текст <a href="#fff">Ссылка на документ</a> текст текст'
+    }) }}
+
+    {{ radio({
+        name: 'test',
+        text: 'Текст текст текст <a href="#fff">Ссылка на документ</a> текст текст'
+    }) }}
+    {{ radio({
+        name: 'test',
+        text: 'Текст текст текст <a href="#fff">Ссылка на документ</a> текст текст'
+    }) }}
+
+    <button data-dropdown-open="test">Открыть dropdown test</button>
+    {{ dropdown({
+        id: 'dropdown',
+        trigger: '<button data-dropdown-open="dropdown">Открыть dropdown</button>',
+        content: 'Текст текст текст <a href="#fff">Ссылка на документ</a> текст текст'
+    }) }}
+{% endblock %}
+
+
+{% block modal %}
+    {% include '../components/modal/modal-location.twig' %}
 {% endblock %}
 
 

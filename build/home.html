@@ -65,6 +65,166 @@
 
     <button data-modal-open="location">Открыть location</button>
     <button data-modal-open="test">Открыть test</button>
+    <button data-modal-open="test1">Открыть test1</button>
+
+    <hr>
+
+    <label class="checkbox ">
+        <input type="checkbox" class="checkbox__input" name="">
+
+        <span class="checkbox__custom-input"></span>
+
+        <span class="checkbox__text">
+            Текст текст текст <a href="#fff">Ссылка на документ</a> текст текст
+        </span>
+    </label>
+
+    <label class="checkbox ">
+        <input type="checkbox" class="checkbox__input" name="">
+
+        <span class="checkbox__custom-input"></span>
+
+        <span class="checkbox__text">
+            Текст текст текст <a href="#fff">Ссылка на документ</a> текст текст
+        </span>
+    </label>
+
+
+    <hr>
+
+    <label class="radio ">
+        <input type="radio" class="radio__input" name="test">
+        <span class="radio__custom-input"></span>
+
+        <span class="radio__text">
+            Текст текст текст <a href="#fff">Ссылка на документ</a> текст текст
+        </span>
+    </label>
+
+    <label class="radio ">
+        <input type="radio" class="radio__input" name="test">
+        <span class="radio__custom-input"></span>
+
+        <span class="radio__text">
+            Текст текст текст <a href="#fff">Ссылка на документ</a> текст текст
+        </span>
+    </label>
+
+
+    <hr>
+
+    <button data-dropdown-open="test">Открыть dropdown test</button>
+    <div class="dropdown dropdown_right" data-dropdown="dropdown">
+        <button data-dropdown-open="dropdown">Открыть dropdown</button>
+
+        <div class="dropdown__content">
+            Текст текст текст <a href="#fff">Ссылка на документ</a> текст текст
+
+            <button data-dropdown-close>Х</button>
+        </div>
+    </div>
+
+
+    <hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <form action="" class="form" data-form="auth" data-error-empty="Поле не должно быть пустым" data-error-maxlen="Максимальная длина {x} символов" data-error-minlen="Минимальная длина {x} символов" data-error-phone="Неверный формат номера телефона" data-error-email="Неверный формат e-mail">
+        <div class="form__row">
+            <label class="form__item">
+                <input type="text" required>
+            </label>
+
+            <label class="form__item">
+                <input type="tel" required>
+            </label>
+        </div>
+
+        <div class="form__row">
+            <label class="form__item">
+                <input type="number" required>
+            </label>
+        </div>
+
+        <div class="form__row">
+            <label class="form__item">
+                <input type="email" required>
+            </label>
+        </div>
+
+        <div class="form__row">
+            <label class="form__item">
+                <input type="file" required>
+            </label>
+        </div>
+
+        <div class="form__row">
+            <label class="form__item">
+                <select required>
+                    <option selected>Выберите вариант</option>
+                    <option value="1">Пункт 1</option>
+                    <option value="2">Пункт 2</option>
+                    <option value="3">Пункт 3</option>
+                    <option value="4">Пункт 4</option>
+                </select>
+            </label>
+        </div>
+
+        <div class="form__row">
+            <label class="radio form__item">
+                <input type="radio" class="radio__input" name="test">
+                <span class="radio__custom-input"></span>
+
+                <span class="radio__text">
+            Текст текст текст <a href="#fff">Ссылка на документ</a> текст текст
+        </span>
+            </label>
+
+            <label class="radio form__item">
+                <input type="radio" class="radio__input" name="test">
+                <span class="radio__custom-input"></span>
+
+                <span class="radio__text">
+            Текст текст текст <a href="#fff">Ссылка на документ</a> текст текст
+        </span>
+            </label>
+
+        </div>
+
+        <div class="form__row">
+            <label class="checkbox form__item">
+                <input type="checkbox" class="checkbox__input" name="" required>
+
+                <span class="checkbox__custom-input"></span>
+
+                <span class="checkbox__text">
+            Текст текст текст <a href="#fff">Ссылка на документ</a> текст текст
+        </span>
+            </label>
+
+        </div>
+
+        <button type="submit">Отправить</button>
+    </form>
+
 
 
 
@@ -99,7 +259,6 @@
     </div>
 
     <script defer src="/scripts/app.js"></script>
-
 </body>
 
 </html>
