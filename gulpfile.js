@@ -23,7 +23,7 @@ if (isDev) {
       fonts,
       scss,
       svgsprite,
-      // javascript,
+      javascript,
       video
     ),
     twig,
