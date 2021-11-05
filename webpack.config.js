@@ -1,5 +1,4 @@
 const path = require('path');
-const TerserPlugin = require('terser-webpack-plugin');
 const config = require('./tasks/config');
 
 const isDev = process.env.NODE_ENV === 'development';
@@ -45,16 +44,5 @@ module.exports = {
   },
   devServer: {
     overlay: false,
-  },
-  optimization: {
-    minimize: !isDev,
-    minimizer: (() =>
-      isDev
-        ? [
-            new TerserPlugin({
-              extractComments: 'all',
-            }),
-          ]
-        : [])(),
   },
 };

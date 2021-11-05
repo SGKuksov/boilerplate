@@ -1,7 +1,6 @@
 const { series, parallel } = require('gulp');
 const { clean } = require('./tasks/clean');
-const config = require('./tasks/config');
-const { todoScripts, todoStyles, todoTwig } = require('./tasks/todo');
+// const { todoScripts, todoStyles, todoTwig } = require('./tasks/todo');
 const { scss } = require('./tasks/scss');
 const { svgsprite } = require('./tasks/svgsprite');
 const { svgspritehtml } = require('./tasks/svgspritehtml');
@@ -18,7 +17,8 @@ const isDev = process.env.NODE_ENV === 'development';
 if (isDev) {
   exports.default = series(
     clean,
-    parallel(todoScripts, todoStyles, todoTwig),
+    // TODO[@sgkuksov] Fix gulp-todo
+    // parallel(todoScripts, todoStyles, todoTwig),
     parallel(img, fonts, scss, svgsprite, javascript, video),
     twig,
     copyStatic,
