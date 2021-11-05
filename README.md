@@ -5,6 +5,11 @@
 - WEBPACK
 - GULP
 
+## Установка
+```
+npm i --legacy-peer-deps
+```
+
 ## tsconfig.json
 Можно добавить
 
