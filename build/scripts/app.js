@@ -1,10 +1,7 @@
 /******/ (function() { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./node_modules/is_js/is.js":
-/*!**********************************!*\
-  !*** ./node_modules/is_js/is.js ***!
-  \**********************************/
+/***/ 258:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -948,10 +945,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*!
 
 /***/ }),
 
-/***/ "./node_modules/scroll-lock/dist/scroll-lock.js":
-/*!******************************************************!*\
-  !*** ./node_modules/scroll-lock/dist/scroll-lock.js ***!
-  \******************************************************/
+/***/ 577:
 /***/ (function(module) {
 
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -2087,10 +2081,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*!
 
 /***/ }),
 
-/***/ "./node_modules/web-vitals/dist/web-vitals.js":
-/*!****************************************************!*\
-  !*** ./node_modules/web-vitals/dist/web-vitals.js ***!
-  \****************************************************/
+/***/ 961:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2337,18 +2328,15 @@ var e,
 
 /***/ }),
 
-/***/ "./src/assets/scripts/App.ts":
-/*!***********************************!*\
-  !*** ./src/assets/scripts/App.ts ***!
-  \***********************************/
+/***/ 299:
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const Modal_1 = __webpack_require__(/*! @/components/modal/Modal */ "./src/components/modal/Modal.ts");
-const Dropdown_1 = __webpack_require__(/*! @/components/dropdown/Dropdown */ "./src/components/dropdown/Dropdown.ts");
-const Form_1 = __webpack_require__(/*! @/components/form/Form */ "./src/components/form/Form.ts");
+const Modal_1 = __webpack_require__(787);
+const Dropdown_1 = __webpack_require__(146);
+const Form_1 = __webpack_require__(267);
 const App = () => {
     // Диспетчер подключения скриптов модулей
     // Modal
@@ -2366,10 +2354,7 @@ exports["default"] = App;
 
 /***/ }),
 
-/***/ "./src/assets/scripts/main.ts":
-/*!************************************!*\
-  !*** ./src/assets/scripts/main.ts ***!
-  \************************************/
+/***/ 401:
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -2378,10 +2363,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const web_vitals_1 = __webpack_require__(/*! web-vitals */ "./node_modules/web-vitals/dist/web-vitals.js");
-const App_1 = __importDefault(__webpack_require__(/*! ./App */ "./src/assets/scripts/App.ts"));
-const config_1 = __webpack_require__(/*! ./utils/config */ "./src/assets/scripts/utils/config.ts");
-const isDev = "development" === 'development';
+const web_vitals_1 = __webpack_require__(961);
+const App_1 = __importDefault(__webpack_require__(299));
+const config_1 = __webpack_require__(392);
+const isDev = "production" === 'development';
 if (isDev) {
     (0, web_vitals_1.getCLS)(console.log);
     (0, web_vitals_1.getFID)(console.log);
@@ -2395,10 +2380,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /***/ }),
 
-/***/ "./src/assets/scripts/utils/config.ts":
-/*!********************************************!*\
-  !*** ./src/assets/scripts/utils/config.ts ***!
-  \********************************************/
+/***/ 392:
 /***/ (function(__unused_webpack_module, exports) {
 
 "use strict";
@@ -2419,10 +2401,7 @@ exports.breakpoints = breakpoints;
 
 /***/ }),
 
-/***/ "./src/components/dropdown/Dropdown.ts":
-/*!*********************************************!*\
-  !*** ./src/components/dropdown/Dropdown.ts ***!
-  \*********************************************/
+/***/ 146:
 /***/ (function(__unused_webpack_module, exports) {
 
 "use strict";
@@ -2544,17 +2523,14 @@ exports.Dropdown = Dropdown;
 
 /***/ }),
 
-/***/ "./src/components/form/Form.ts":
-/*!*************************************!*\
-  !*** ./src/components/form/Form.ts ***!
-  \*************************************/
+/***/ 267:
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Form = void 0;
-const form_utils_1 = __webpack_require__(/*! @/components/form/form.utils */ "./src/components/form/form.utils.ts");
+const form_utils_1 = __webpack_require__(906);
 function Form() {
     let _isFormValid = null;
     function reset(form) {
@@ -2656,10 +2632,7 @@ exports.Form = Form;
 
 /***/ }),
 
-/***/ "./src/components/form/form.utils.ts":
-/*!*******************************************!*\
-  !*** ./src/components/form/form.utils.ts ***!
-  \*******************************************/
+/***/ 906:
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -2669,7 +2642,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.checkInputs = exports.checkValue = exports.getErrorMessage = exports.getRules = exports.getValue = exports.getFormData = exports.hideAllError = exports.hideError = exports.showError = exports.createError = exports.defaultErrorsMsg = void 0;
-const is_js_1 = __importDefault(__webpack_require__(/*! is_js */ "./node_modules/is_js/is.js"));
+const is_js_1 = __importDefault(__webpack_require__(258));
 // error-empty
 // error-len
 // error-phone
@@ -2869,17 +2842,14 @@ exports.checkInputs = checkInputs;
 
 /***/ }),
 
-/***/ "./src/components/modal/Modal.ts":
-/*!***************************************!*\
-  !*** ./src/components/modal/Modal.ts ***!
-  \***************************************/
+/***/ 787:
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Modal = void 0;
-const scroll_lock_1 = __webpack_require__(/*! scroll-lock */ "./node_modules/scroll-lock/dist/scroll-lock.js");
+const scroll_lock_1 = __webpack_require__(577);
 function createOverlay() {
     const overlay = document.createElement('div');
     overlay.classList.add('modal-overlay');
@@ -3109,8 +3079,7 @@ exports.Modal = Modal;
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module is referenced by other modules so it can't be inlined
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/assets/scripts/main.ts");
+/******/ 	var __webpack_exports__ = __webpack_require__(401);
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=app.js.map

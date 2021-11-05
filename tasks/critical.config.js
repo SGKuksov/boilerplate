@@ -9,7 +9,6 @@
 module.exports = (options) => ({
   base: 'build/',
   inline: true,
-  minify: true,
   width: 1920,
   height: 1080,
   css: options.css,
