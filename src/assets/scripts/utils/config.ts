@@ -5,8 +5,7 @@ const breakpoints = {
   desktop: '(min-width: 1280px)',
   'desktop-wide': '(min-width: 1440px)',
   fullhd: '(min-width: 1920px)',
-  ultra: '(min-width: 2560px)'
+  ultra: '(min-width: 2560px)',
 };
 
-// eslint-disable-next-line import/prefer-default-export
 export { breakpoints };

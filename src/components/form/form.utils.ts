@@ -6,13 +6,13 @@ import is from 'is_js';
 // error-email
 export const defaultErrorsMsg = {
   empty: 'Поле не должно быть пустым',
-  minlen: x => `Минимальная длина ${x} символов`,
-  maxlen: x => `Максимальная длина ${x} символов`,
+  minlen: (x: string) => `Минимальная длина ${x} символов`,
+  maxlen: (x: string) => `Максимальная длина ${x} символов`,
   phone: 'Неверный формат номера телефона',
   email: 'Неверный формат e-mail'
 };
 
-export function createError(content, formItem = null) {
+export function createError(content: string, formItem: HTMLElement | null = null) {
   const error = document.createElement('span');
   error.classList.add('error', 'form__error');
   error.dataset.error = '';
@@ -25,7 +25,7 @@ export function createError(content, formItem = null) {
   return error;
 }
 
-export function showError(item, msg) {
+export function showError(item: HTMLElement, msg: string) {
   if (!item) return;
   let error = item.querySelector('[data-error]');
 
@@ -36,7 +36,7 @@ export function showError(item, msg) {
   error.classList.add('error_shown');
 }
 
-export function hideError(item) {
+export function hideError(item: HTMLElement) {
   if (!item) return;
   const error = item.querySelector('[data-error]');
 
@@ -44,25 +44,27 @@ export function hideError(item) {
   error.classList.add('error_hide');
 }
 
-export function hideAllError(items) {
+export function hideAllError(items: HTMLElement[]) {
   items.forEach(item => {
     hideError(item);
   });
 }
 
-export function getFormData(selector) {
-  let form = null;
+export function getFormData(selector: string | HTMLFormElement) {
+  let form: HTMLFormElement | null = null;
 
   if (typeof selector === 'string') {
     form = document.querySelector(selector);
-  } else {
+  }
+
+  if (selector instanceof Element) {
     form = selector;
   }
 
-  return new FormData(form);
+  return new FormData(form!);
 }
 
-export function getValue(input) {
+export function getValue(input: HTMLInputElement) {
   if (input.tagName === 'INPUT') {
     if (input.type === 'checkbox' || input.type === 'radio') {
       let inputValue = null;
@@ -92,7 +94,7 @@ export function getValue(input) {
   return input.value;
 }
 
-export function getRules(input) {
+export function getRules(input: HTMLInputElement) {
   const rules = [];
 
   if ('errorEmpty' in input.dataset || input.dataset.required) {
@@ -114,7 +116,7 @@ export function getRules(input) {
   return [];
 }
 
-export function getErrorMessage(input, error) {
+export function getErrorMessage(input: HTMLInputElement, error: string) {
   let errorMsg = null;
 
   // error-empty
@@ -131,13 +133,13 @@ export function getErrorMessage(input, error) {
     if ('errorLenMsg' in input.dataset) {
       errorMsg = input.dataset.errorEmptyMsg;
     } else {
-      errorMsg = defaultErrorsMsg[error](input.dataset.errorLen);
+      errorMsg = defaultErrorsMsg[error](input.dataset.errorLen!);
     }
   } else if (error === 'minlen') {
     if ('errorLenMsg' in input.dataset) {
       errorMsg = input.dataset.errorEmptyMsg;
     } else {
-      errorMsg = defaultErrorsMsg[error](input.dataset.errorLen);
+      errorMsg = defaultErrorsMsg[error](input.dataset.errorLen!);
     }
   } else if (error === 'phone') {
     if ('errorPhoneMsg' in input.dataset) {
@@ -158,7 +160,7 @@ export function getErrorMessage(input, error) {
   return errorMsg;
 }
 
-export function checkValue(value, rules = []) {
+export function checkValue(value: string, rules = []): string | null {
   let result = null;
 
   // eslint-disable-next-line no-plusplus
@@ -186,7 +188,7 @@ export function checkValue(value, rules = []) {
   return result;
 }
 
-export function checkInputs(inputs) {
+export function checkInputs(inputs: HTMLInputElement[]) {
   let isFormValid = true;
 
   inputs.forEach(input => {
@@ -194,11 +196,11 @@ export function checkInputs(inputs) {
     const rules = getRules(input);
     console.log(value, rules);
 
-    const failedRule = checkValue(value, rules);
+    const failedRule = checkValue(value!, rules);
 
     if (!failedRule) {
-      const msg = getErrorMessage(input, failedRule);
-      showError(input, msg);
+      const msg = getErrorMessage(input, failedRule!);
+      showError(input, msg!);
     }
 
     if (isFormValid) {

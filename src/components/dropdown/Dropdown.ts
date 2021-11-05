@@ -1,6 +1,6 @@
 import { clearQueueScrollLocks, disablePageScroll, enablePageScroll } from 'scroll-lock';
 
-function createDropdown(selector, content, type = 'left') {
+function createDropdown(selector: string | HTMLElement, content: string, type = 'left') {
   let className = '';
   let button = null;
 
@@ -13,7 +13,11 @@ function createDropdown(selector, content, type = 'left') {
   }
 
   if (typeof selector === 'string') {
-    button = document.querySelector(`[data-dropdown-open="${selector}"]`);
+    button = document.querySelector(`[data-dropdown-open="${selector}"]`) as HTMLElement;
+  }
+
+  if (selector instanceof Element) {
+    button = selector;
   }
 
   if (!button) return;
@@ -32,6 +36,7 @@ function createDropdown(selector, content, type = 'left') {
     </div>   
   `;
 
+  // @ts-ignore
   button.parentNode.insertBefore(dropdown, button.nextSibling);
   dropdown.prepend(button);
 }
@@ -39,7 +44,7 @@ function createDropdown(selector, content, type = 'left') {
 function Dropdown() {
   let _isOpen = false;
 
-  function open(id) {
+  function open(id: string) {
     const selector = `[data-dropdown="${id}"]`;
     const dropdown = document.querySelector(selector);
 
@@ -51,7 +56,7 @@ function Dropdown() {
     }, 300);
   }
 
-  function close(dropdown) {
+  function close(dropdown: HTMLElement) {
     dropdown.classList.remove('dropdown_visible');
 
     setTimeout(() => {
@@ -61,7 +66,7 @@ function Dropdown() {
 
   function closeAll() {
     const selector = `[data-dropdown]`;
-    const dropdowns = Array.from(document.querySelectorAll(selector));
+    const dropdowns = Array.from(document.querySelectorAll(selector)) as HTMLElement[];
 
     dropdowns.forEach(item => {
       close(item);
@@ -71,8 +76,8 @@ function Dropdown() {
     // clearQueueScrollLocks();
   }
 
-  function documentClickHandler(e) {
-    const { target } = e;
+  function documentClickHandler(e: MouseEvent) {
+    const target = e.target as HTMLElement;
 
     if (_isOpen) {
       // Close all
@@ -88,7 +93,7 @@ function Dropdown() {
       // clearQueueScrollLocks();
       // enablePageScroll(currentDropdown);
     } else {
-      const dropdownTrigger = target.closest('[data-dropdown-open]');
+      const dropdownTrigger = target.closest('[data-dropdown-open]') as HTMLElement;
 
       if (!dropdownTrigger) return;
 
@@ -103,7 +108,7 @@ function Dropdown() {
     }
   }
 
-  function documentKeyupHandler(e) {
+  function documentKeyupHandler(e: KeyboardEvent) {
     if (e.key === 'Escape') {
       closeAll();
       _isOpen = false;
@@ -130,8 +135,3 @@ function Dropdown() {
 }
 
 export { Dropdown };
-
-
-class MyClass {
-  
-}

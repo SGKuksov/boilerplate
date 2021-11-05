@@ -1,99 +1,13 @@
-/******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId]) {
-/******/ 			return installedModules[moduleId].exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			i: moduleId,
-/******/ 			l: false,
-/******/ 			exports: {}
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.l = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// define getter function for harmony exports
-/******/ 	__webpack_require__.d = function(exports, name, getter) {
-/******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
-/******/ 		}
-/******/ 	};
-/******/
-/******/ 	// define __esModule on exports
-/******/ 	__webpack_require__.r = function(exports) {
-/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 		}
-/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 	};
-/******/
-/******/ 	// create a fake namespace object
-/******/ 	// mode & 1: value is a module id, require it
-/******/ 	// mode & 2: merge all properties of value into the ns
-/******/ 	// mode & 4: return value when already ns object
-/******/ 	// mode & 8|1: behave like require
-/******/ 	__webpack_require__.t = function(value, mode) {
-/******/ 		if(mode & 1) value = __webpack_require__(value);
-/******/ 		if(mode & 8) return value;
-/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
-/******/ 		var ns = Object.create(null);
-/******/ 		__webpack_require__.r(ns);
-/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
-/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
-/******/ 		return ns;
-/******/ 	};
-/******/
-/******/ 	// getDefaultExport function for compatibility with non-harmony modules
-/******/ 	__webpack_require__.n = function(module) {
-/******/ 		var getter = module && module.__esModule ?
-/******/ 			function getDefault() { return module['default']; } :
-/******/ 			function getModuleExports() { return module; };
-/******/ 		__webpack_require__.d(getter, 'a', getter);
-/******/ 		return getter;
-/******/ 	};
-/******/
-/******/ 	// Object.prototype.hasOwnProperty.call
-/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
-/******/
-/******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/assets/scripts/main.js");
-/******/ })
-/************************************************************************/
-/******/ ({
+/******/ (function() { // webpackBootstrap
+/******/ 	var __webpack_modules__ = ({
 
 /***/ "./node_modules/is_js/is.js":
 /*!**********************************!*\
   !*** ./node_modules/is_js/is.js ***!
   \**********************************/
-/*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(global) {var __WEBPACK_AMD_DEFINE_RESULT__;/*!
+var __WEBPACK_AMD_DEFINE_RESULT__;/*!
  * is.js 0.8.0
  * Author: Aras Atasaygin
  */
@@ -110,7 +24,7 @@
       // a global even when an AMD loader is in use.
       return root.is = factory();
     }).call(exports, __webpack_require__, exports, module),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
   } else {}
 })(this, function () {
   // Baseline
@@ -701,7 +615,7 @@
   /* -------------------------------------------------------------------------- */
 
 
-  var freeGlobal = is.windowObject(typeof global == 'object' && global) && global;
+  var freeGlobal = is.windowObject(typeof __webpack_require__.g == 'object' && __webpack_require__.g) && __webpack_require__.g;
   var freeSelf = is.windowObject(typeof self == 'object' && self) && self;
   var thisGlobal = is.windowObject(typeof this == 'object' && this) && this;
   var root = freeGlobal || freeSelf || thisGlobal || Function('return this')();
@@ -1031,7 +945,6 @@
 
   return is;
 });
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
 
 /***/ }),
 
@@ -1039,8 +952,7 @@
 /*!******************************************************!*\
   !*** ./node_modules/scroll-lock/dist/scroll-lock.js ***!
   \******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module) {
 
 (function webpackUniversalModuleDefinition(root, factory) {
   if (true) module.exports = factory();else {}
@@ -1062,7 +974,7 @@
 
       /******/
 
-      function __webpack_require__(moduleId) {
+      function __nested_webpack_require_607__(moduleId) {
         /******/
 
         /******/
@@ -1099,7 +1011,7 @@
 
         /******/
 
-        modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+        modules[moduleId].call(module.exports, module, module.exports, __nested_webpack_require_607__);
         /******/
 
         /******/
@@ -1128,7 +1040,7 @@
       /******/
 
 
-      __webpack_require__.m = modules;
+      __nested_webpack_require_607__.m = modules;
       /******/
 
       /******/
@@ -1136,7 +1048,7 @@
 
       /******/
 
-      __webpack_require__.c = installedModules;
+      __nested_webpack_require_607__.c = installedModules;
       /******/
 
       /******/
@@ -1144,9 +1056,9 @@
 
       /******/
 
-      __webpack_require__.d = function (exports, name, getter) {
+      __nested_webpack_require_607__.d = function (exports, name, getter) {
         /******/
-        if (!__webpack_require__.o(exports, name)) {
+        if (!__nested_webpack_require_607__.o(exports, name)) {
           /******/
           Object.defineProperty(exports, name, {
             enumerable: true,
@@ -1165,7 +1077,7 @@
       /******/
 
 
-      __webpack_require__.r = function (exports) {
+      __nested_webpack_require_607__.r = function (exports) {
         /******/
         if (typeof Symbol !== 'undefined' && Symbol.toStringTag) {
           /******/
@@ -1202,9 +1114,9 @@
       /******/
 
 
-      __webpack_require__.t = function (value, mode) {
+      __nested_webpack_require_607__.t = function (value, mode) {
         /******/
-        if (mode & 1) value = __webpack_require__(value);
+        if (mode & 1) value = __nested_webpack_require_607__(value);
         /******/
 
         if (mode & 8) return value;
@@ -1216,7 +1128,7 @@
         var ns = Object.create(null);
         /******/
 
-        __webpack_require__.r(ns);
+        __nested_webpack_require_607__.r(ns);
         /******/
 
 
@@ -1226,7 +1138,7 @@
         });
         /******/
 
-        if (mode & 2 && typeof value != 'string') for (var key in value) __webpack_require__.d(ns, key, function (key) {
+        if (mode & 2 && typeof value != 'string') for (var key in value) __nested_webpack_require_607__.d(ns, key, function (key) {
           return value[key];
         }.bind(null, key));
         /******/
@@ -1242,7 +1154,7 @@
       /******/
 
 
-      __webpack_require__.n = function (module) {
+      __nested_webpack_require_607__.n = function (module) {
         /******/
         var getter = module && module.__esModule ?
         /******/
@@ -1255,7 +1167,7 @@
         };
         /******/
 
-        __webpack_require__.d(getter, 'a', getter);
+        __nested_webpack_require_607__.d(getter, 'a', getter);
         /******/
 
 
@@ -1270,7 +1182,7 @@
       /******/
 
 
-      __webpack_require__.o = function (object, property) {
+      __nested_webpack_require_607__.o = function (object, property) {
         return Object.prototype.hasOwnProperty.call(object, property);
       };
       /******/
@@ -1281,7 +1193,7 @@
       /******/
 
 
-      __webpack_require__.p = "";
+      __nested_webpack_require_607__.p = "";
       /******/
 
       /******/
@@ -1291,20 +1203,20 @@
 
       /******/
 
-      return __webpack_require__(__webpack_require__.s = 0);
+      return __nested_webpack_require_607__(__nested_webpack_require_607__.s = 0);
       /******/
-    }(
+    }
     /************************************************************************/
 
     /******/
-    [
+    ([
     /* 0 */
 
     /***/
-    function (module, __webpack_exports__, __webpack_require__) {
+    function (module, __webpack_exports__, __nested_webpack_require_5303__) {
       "use strict";
 
-      __webpack_require__.r(__webpack_exports__); // CONCATENATED MODULE: ./src/tools.js
+      __nested_webpack_require_5303__.r(__webpack_exports__); // CONCATENATED MODULE: ./src/tools.js
 
 
       var argumentAsArray = function argumentAsArray(argument) {
@@ -1440,121 +1352,121 @@
       /* harmony export (binding) */
 
 
-      __webpack_require__.d(__webpack_exports__, "disablePageScroll", function () {
+      __nested_webpack_require_5303__.d(__webpack_exports__, "disablePageScroll", function () {
         return disablePageScroll;
       });
       /* harmony export (binding) */
 
 
-      __webpack_require__.d(__webpack_exports__, "enablePageScroll", function () {
+      __nested_webpack_require_5303__.d(__webpack_exports__, "enablePageScroll", function () {
         return enablePageScroll;
       });
       /* harmony export (binding) */
 
 
-      __webpack_require__.d(__webpack_exports__, "getScrollState", function () {
+      __nested_webpack_require_5303__.d(__webpack_exports__, "getScrollState", function () {
         return getScrollState;
       });
       /* harmony export (binding) */
 
 
-      __webpack_require__.d(__webpack_exports__, "clearQueueScrollLocks", function () {
+      __nested_webpack_require_5303__.d(__webpack_exports__, "clearQueueScrollLocks", function () {
         return clearQueueScrollLocks;
       });
       /* harmony export (binding) */
 
 
-      __webpack_require__.d(__webpack_exports__, "getTargetScrollBarWidth", function () {
+      __nested_webpack_require_5303__.d(__webpack_exports__, "getTargetScrollBarWidth", function () {
         return scroll_lock_getTargetScrollBarWidth;
       });
       /* harmony export (binding) */
 
 
-      __webpack_require__.d(__webpack_exports__, "getCurrentTargetScrollBarWidth", function () {
+      __nested_webpack_require_5303__.d(__webpack_exports__, "getCurrentTargetScrollBarWidth", function () {
         return scroll_lock_getCurrentTargetScrollBarWidth;
       });
       /* harmony export (binding) */
 
 
-      __webpack_require__.d(__webpack_exports__, "getPageScrollBarWidth", function () {
+      __nested_webpack_require_5303__.d(__webpack_exports__, "getPageScrollBarWidth", function () {
         return getPageScrollBarWidth;
       });
       /* harmony export (binding) */
 
 
-      __webpack_require__.d(__webpack_exports__, "getCurrentPageScrollBarWidth", function () {
+      __nested_webpack_require_5303__.d(__webpack_exports__, "getCurrentPageScrollBarWidth", function () {
         return getCurrentPageScrollBarWidth;
       });
       /* harmony export (binding) */
 
 
-      __webpack_require__.d(__webpack_exports__, "addScrollableTarget", function () {
+      __nested_webpack_require_5303__.d(__webpack_exports__, "addScrollableTarget", function () {
         return scroll_lock_addScrollableTarget;
       });
       /* harmony export (binding) */
 
 
-      __webpack_require__.d(__webpack_exports__, "removeScrollableTarget", function () {
+      __nested_webpack_require_5303__.d(__webpack_exports__, "removeScrollableTarget", function () {
         return scroll_lock_removeScrollableTarget;
       });
       /* harmony export (binding) */
 
 
-      __webpack_require__.d(__webpack_exports__, "addScrollableSelector", function () {
+      __nested_webpack_require_5303__.d(__webpack_exports__, "addScrollableSelector", function () {
         return scroll_lock_addScrollableSelector;
       });
       /* harmony export (binding) */
 
 
-      __webpack_require__.d(__webpack_exports__, "removeScrollableSelector", function () {
+      __nested_webpack_require_5303__.d(__webpack_exports__, "removeScrollableSelector", function () {
         return scroll_lock_removeScrollableSelector;
       });
       /* harmony export (binding) */
 
 
-      __webpack_require__.d(__webpack_exports__, "addLockableTarget", function () {
+      __nested_webpack_require_5303__.d(__webpack_exports__, "addLockableTarget", function () {
         return scroll_lock_addLockableTarget;
       });
       /* harmony export (binding) */
 
 
-      __webpack_require__.d(__webpack_exports__, "addLockableSelector", function () {
+      __nested_webpack_require_5303__.d(__webpack_exports__, "addLockableSelector", function () {
         return scroll_lock_addLockableSelector;
       });
       /* harmony export (binding) */
 
 
-      __webpack_require__.d(__webpack_exports__, "setFillGapMethod", function () {
+      __nested_webpack_require_5303__.d(__webpack_exports__, "setFillGapMethod", function () {
         return scroll_lock_setFillGapMethod;
       });
       /* harmony export (binding) */
 
 
-      __webpack_require__.d(__webpack_exports__, "addFillGapTarget", function () {
+      __nested_webpack_require_5303__.d(__webpack_exports__, "addFillGapTarget", function () {
         return scroll_lock_addFillGapTarget;
       });
       /* harmony export (binding) */
 
 
-      __webpack_require__.d(__webpack_exports__, "removeFillGapTarget", function () {
+      __nested_webpack_require_5303__.d(__webpack_exports__, "removeFillGapTarget", function () {
         return scroll_lock_removeFillGapTarget;
       });
       /* harmony export (binding) */
 
 
-      __webpack_require__.d(__webpack_exports__, "addFillGapSelector", function () {
+      __nested_webpack_require_5303__.d(__webpack_exports__, "addFillGapSelector", function () {
         return scroll_lock_addFillGapSelector;
       });
       /* harmony export (binding) */
 
 
-      __webpack_require__.d(__webpack_exports__, "removeFillGapSelector", function () {
+      __nested_webpack_require_5303__.d(__webpack_exports__, "removeFillGapSelector", function () {
         return scroll_lock_removeFillGapSelector;
       });
       /* harmony export (binding) */
 
 
-      __webpack_require__.d(__webpack_exports__, "refillGaps", function () {
+      __nested_webpack_require_5303__.d(__webpack_exports__, "refillGaps", function () {
         return refillGaps;
       });
 
@@ -2175,597 +2087,810 @@
 
 /***/ }),
 
-/***/ "./node_modules/webpack/buildin/global.js":
-/*!***********************************!*\
-  !*** (webpack)/buildin/global.js ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-var g; // This works in non-strict mode
-
-g = function () {
-  return this;
-}();
-
-try {
-  // This works if eval is allowed (see CSP)
-  g = g || new Function("return this")();
-} catch (e) {
-  // This works if the window reference is available
-  if (typeof window === "object") g = window;
-} // g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-
-module.exports = g;
-
-/***/ }),
-
-/***/ "./src/assets/scripts/App.js":
-/*!***********************************!*\
-  !*** ./src/assets/scripts/App.js ***!
-  \***********************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ "./node_modules/web-vitals/dist/web-vitals.js":
+/*!****************************************************!*\
+  !*** ./node_modules/web-vitals/dist/web-vitals.js ***!
+  \****************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_modal_Modal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/components/modal/Modal */ "./src/components/modal/Modal.js");
-/* harmony import */ var _components_dropdown_Dropdown__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/dropdown/Dropdown */ "./src/components/dropdown/Dropdown.js");
-/* harmony import */ var _components_form_Form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/components/form/Form */ "./src/components/form/Form.js");
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getCLS": function() { return /* binding */ h; },
+/* harmony export */   "getFCP": function() { return /* binding */ p; },
+/* harmony export */   "getFID": function() { return /* binding */ L; },
+/* harmony export */   "getLCP": function() { return /* binding */ F; },
+/* harmony export */   "getTTFB": function() { return /* binding */ P; }
+/* harmony export */ });
+var e,
+    t,
+    n,
+    i,
+    r = function (e, t) {
+  return {
+    name: e,
+    value: void 0 === t ? -1 : t,
+    delta: 0,
+    entries: [],
+    id: "v2-".concat(Date.now(), "-").concat(Math.floor(8999999999999 * Math.random()) + 1e12)
+  };
+},
+    a = function (e, t) {
+  try {
+    if (PerformanceObserver.supportedEntryTypes.includes(e)) {
+      if ("first-input" === e && !("PerformanceEventTiming" in self)) return;
+      var n = new PerformanceObserver(function (e) {
+        return e.getEntries().map(t);
+      });
+      return n.observe({
+        type: e,
+        buffered: !0
+      }), n;
+    }
+  } catch (e) {}
+},
+    o = function (e, t) {
+  var n = function n(i) {
+    "pagehide" !== i.type && "hidden" !== document.visibilityState || (e(i), t && (removeEventListener("visibilitychange", n, !0), removeEventListener("pagehide", n, !0)));
+  };
 
+  addEventListener("visibilitychange", n, !0), addEventListener("pagehide", n, !0);
+},
+    c = function (e) {
+  addEventListener("pageshow", function (t) {
+    t.persisted && e(t);
+  }, !0);
+},
+    u = function (e, t, n) {
+  var i;
+  return function (r) {
+    t.value >= 0 && (r || n) && (t.delta = t.value - (i || 0), (t.delta || void 0 === i) && (i = t.value, e(t)));
+  };
+},
+    f = -1,
+    s = function () {
+  return "hidden" === document.visibilityState ? 0 : 1 / 0;
+},
+    m = function () {
+  o(function (e) {
+    var t = e.timeStamp;
+    f = t;
+  }, !0);
+},
+    v = function () {
+  return f < 0 && (f = s(), m(), c(function () {
+    setTimeout(function () {
+      f = s(), m();
+    }, 0);
+  })), {
+    get firstHiddenTime() {
+      return f;
+    }
 
+  };
+},
+    p = function (e, t) {
+  var n,
+      i = v(),
+      o = r("FCP"),
+      f = function (e) {
+    "first-contentful-paint" === e.name && (m && m.disconnect(), e.startTime < i.firstHiddenTime && (o.value = e.startTime, o.entries.push(e), n(!0)));
+  },
+      s = window.performance && performance.getEntriesByName && performance.getEntriesByName("first-contentful-paint")[0],
+      m = s ? null : a("paint", f);
 
+  (s || m) && (n = u(e, o, t), s && f(s), c(function (i) {
+    o = r("FCP"), n = u(e, o, t), requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        o.value = performance.now() - i.timeStamp, n(!0);
+      });
+    });
+  }));
+},
+    d = !1,
+    l = -1,
+    h = function (e, t) {
+  d || (p(function (e) {
+    l = e.value;
+  }), d = !0);
 
-const App = () => {
-  // Диспетчер подключения скриптов модулей
-  // Modal
-  Object(_components_modal_Modal__WEBPACK_IMPORTED_MODULE_0__["Modal"])().init();
-  Object(_components_modal_Modal__WEBPACK_IMPORTED_MODULE_0__["Modal"])().createModal(`
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus alias at beatae, dolore excepturi fugit harum in ipsa laudantium nemo nobis numquam perferendis perspiciatis qui quis saepe sit tenetur vero.
-  `, 'test');
-  Object(_components_modal_Modal__WEBPACK_IMPORTED_MODULE_0__["Modal"])().createModal(`235435757034976598067245`, 'test1');
-  Object(_components_dropdown_Dropdown__WEBPACK_IMPORTED_MODULE_1__["Dropdown"])().init();
-  Object(_components_dropdown_Dropdown__WEBPACK_IMPORTED_MODULE_1__["Dropdown"])().createDropdown('test', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'right');
-  Object(_components_form_Form__WEBPACK_IMPORTED_MODULE_2__["Form"])().init();
+  var n,
+      i = function (t) {
+    l > -1 && e(t);
+  },
+      f = r("CLS", 0),
+      s = 0,
+      m = [],
+      v = function (e) {
+    if (!e.hadRecentInput) {
+      var t = m[0],
+          i = m[m.length - 1];
+      s && e.startTime - i.startTime < 1e3 && e.startTime - t.startTime < 5e3 ? (s += e.value, m.push(e)) : (s = e.value, m = [e]), s > f.value && (f.value = s, f.entries = m, n());
+    }
+  },
+      h = a("layout-shift", v);
+
+  h && (n = u(i, f, t), o(function () {
+    h.takeRecords().map(v), n(!0);
+  }), c(function () {
+    s = 0, l = -1, f = r("CLS", 0), n = u(i, f, t);
+  }));
+},
+    g = {
+  passive: !0,
+  capture: !0
+},
+    y = new Date(),
+    T = function (i, r) {
+  e || (e = r, t = i, n = new Date(), S(removeEventListener), E());
+},
+    E = function () {
+  if (t >= 0 && t < n - y) {
+    var r = {
+      entryType: "first-input",
+      name: e.type,
+      target: e.target,
+      cancelable: e.cancelable,
+      startTime: e.timeStamp,
+      processingStart: e.timeStamp + t
+    };
+    i.forEach(function (e) {
+      e(r);
+    }), i = [];
+  }
+},
+    w = function (e) {
+  if (e.cancelable) {
+    var t = (e.timeStamp > 1e12 ? new Date() : performance.now()) - e.timeStamp;
+    "pointerdown" == e.type ? function (e, t) {
+      var n = function () {
+        T(e, t), r();
+      },
+          i = function () {
+        r();
+      },
+          r = function () {
+        removeEventListener("pointerup", n, g), removeEventListener("pointercancel", i, g);
+      };
+
+      addEventListener("pointerup", n, g), addEventListener("pointercancel", i, g);
+    }(t, e) : T(t, e);
+  }
+},
+    S = function (e) {
+  ["mousedown", "keydown", "touchstart", "pointerdown"].forEach(function (t) {
+    return e(t, w, g);
+  });
+},
+    L = function (n, f) {
+  var s,
+      m = v(),
+      p = r("FID"),
+      d = function (e) {
+    e.startTime < m.firstHiddenTime && (p.value = e.processingStart - e.startTime, p.entries.push(e), s(!0));
+  },
+      l = a("first-input", d);
+
+  s = u(n, p, f), l && o(function () {
+    l.takeRecords().map(d), l.disconnect();
+  }, !0), l && c(function () {
+    var a;
+    p = r("FID"), s = u(n, p, f), i = [], t = -1, e = null, S(addEventListener), a = d, i.push(a), E();
+  });
+},
+    b = {},
+    F = function (e, t) {
+  var n,
+      i = v(),
+      f = r("LCP"),
+      s = function (e) {
+    var t = e.startTime;
+    t < i.firstHiddenTime && (f.value = t, f.entries.push(e)), n();
+  },
+      m = a("largest-contentful-paint", s);
+
+  if (m) {
+    n = u(e, f, t);
+
+    var p = function () {
+      b[f.id] || (m.takeRecords().map(s), m.disconnect(), b[f.id] = !0, n(!0));
+    };
+
+    ["keydown", "click"].forEach(function (e) {
+      addEventListener(e, p, {
+        once: !0,
+        capture: !0
+      });
+    }), o(p, !0), c(function (i) {
+      f = r("LCP"), n = u(e, f, t), requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          f.value = performance.now() - i.timeStamp, b[f.id] = !0, n(!0);
+        });
+      });
+    });
+  }
+},
+    P = function (e) {
+  var t,
+      n = r("TTFB");
+  t = function () {
+    try {
+      var t = performance.getEntriesByType("navigation")[0] || function () {
+        var e = performance.timing,
+            t = {
+          entryType: "navigation",
+          startTime: 0
+        };
+
+        for (var n in e) "navigationStart" !== n && "toJSON" !== n && (t[n] = Math.max(e[n] - e.navigationStart, 0));
+
+        return t;
+      }();
+
+      if (n.value = n.delta = t.responseStart, n.value < 0 || n.value > performance.now()) return;
+      n.entries = [t], e(n);
+    } catch (e) {}
+  }, "complete" === document.readyState ? setTimeout(t, 0) : addEventListener("pageshow", t);
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (App);
+
 
 /***/ }),
 
-/***/ "./src/assets/scripts/main.js":
-/*!************************************!*\
-  !*** ./src/assets/scripts/main.js ***!
-  \************************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ "./src/assets/scripts/App.ts":
+/*!***********************************!*\
+  !*** ./src/assets/scripts/App.ts ***!
+  \***********************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./App */ "./src/assets/scripts/App.js");
 
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const Modal_1 = __webpack_require__(/*! @/components/modal/Modal */ "./src/components/modal/Modal.ts");
+const Dropdown_1 = __webpack_require__(/*! @/components/dropdown/Dropdown */ "./src/components/dropdown/Dropdown.ts");
+const Form_1 = __webpack_require__(/*! @/components/form/Form */ "./src/components/form/Form.ts");
+const App = () => {
+    // Диспетчер подключения скриптов модулей
+    // Modal
+    (0, Modal_1.Modal)().init();
+    (0, Modal_1.Modal)().createModal(`
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus alias at beatae, dolore excepturi fugit harum in ipsa laudantium nemo nobis numquam perferendis perspiciatis qui quis saepe sit tenetur vero.
+  `, 'test');
+    (0, Modal_1.Modal)().createModal(`235435757034976598067245`, 'test1');
+    (0, Dropdown_1.Dropdown)().init();
+    (0, Dropdown_1.Dropdown)().createDropdown('test', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'right');
+    (0, Form_1.Form)().init();
+};
+exports["default"] = App;
+
+
+/***/ }),
+
+/***/ "./src/assets/scripts/main.ts":
+/*!************************************!*\
+  !*** ./src/assets/scripts/main.ts ***!
+  \************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const web_vitals_1 = __webpack_require__(/*! web-vitals */ "./node_modules/web-vitals/dist/web-vitals.js");
+const App_1 = __importDefault(__webpack_require__(/*! ./App */ "./src/assets/scripts/App.ts"));
+const config_1 = __webpack_require__(/*! ./utils/config */ "./src/assets/scripts/utils/config.ts");
+const isDev = "development" === 'development';
+if (isDev) {
+    (0, web_vitals_1.getCLS)(console.log);
+    (0, web_vitals_1.getFID)(console.log);
+    (0, web_vitals_1.getLCP)(console.log);
+}
 document.addEventListener('DOMContentLoaded', () => {
-  Object(_App__WEBPACK_IMPORTED_MODULE_0__["default"])();
+    (0, App_1.default)();
+    console.log(config_1.breakpoints);
 });
 
+
 /***/ }),
 
-/***/ "./src/components/dropdown/Dropdown.js":
-/*!*********************************************!*\
-  !*** ./src/components/dropdown/Dropdown.js ***!
-  \*********************************************/
-/*! exports provided: Dropdown */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ "./src/assets/scripts/utils/config.ts":
+/*!********************************************!*\
+  !*** ./src/assets/scripts/utils/config.ts ***!
+  \********************************************/
+/***/ (function(__unused_webpack_module, exports) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Dropdown", function() { return Dropdown; });
-/* harmony import */ var scroll_lock__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! scroll-lock */ "./node_modules/scroll-lock/dist/scroll-lock.js");
-/* harmony import */ var scroll_lock__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(scroll_lock__WEBPACK_IMPORTED_MODULE_0__);
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.breakpoints = void 0;
+const breakpoints = {
+    mobile: '(min-width: 0)',
+    tablet: '(min-width: 768px)',
+    'tablet-landscape': '(min-width: 1024px)',
+    desktop: '(min-width: 1280px)',
+    'desktop-wide': '(min-width: 1440px)',
+    fullhd: '(min-width: 1920px)',
+    ultra: '(min-width: 2560px)',
+};
+exports.breakpoints = breakpoints;
 
 
+/***/ }),
+
+/***/ "./src/components/dropdown/Dropdown.ts":
+/*!*********************************************!*\
+  !*** ./src/components/dropdown/Dropdown.ts ***!
+  \*********************************************/
+/***/ (function(__unused_webpack_module, exports) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.Dropdown = void 0;
 function createDropdown(selector, content, type = 'left') {
-  let className = '';
-  let button = null;
-
-  if (type === 'left') {
-    className = 'dropdown_left';
-  }
-
-  if (type === 'right') {
-    className = 'dropdown_right';
-  }
-
-  if (typeof selector === 'string') {
-    button = document.querySelector(`[data-dropdown-open="${selector}"]`);
-  }
-
-  if (!button) return;
-  const id = button.dataset.dropdownOpen;
-  if (!id) return;
-  const dropdown = document.createElement('div');
-  dropdown.classList.add('dropdown', className);
-  dropdown.dataset.dropdown = id;
-  dropdown.innerHTML = `
+    let className = '';
+    let button = null;
+    if (type === 'left') {
+        className = 'dropdown_left';
+    }
+    if (type === 'right') {
+        className = 'dropdown_right';
+    }
+    if (typeof selector === 'string') {
+        button = document.querySelector(`[data-dropdown-open="${selector}"]`);
+    }
+    if (selector instanceof Element) {
+        button = selector;
+    }
+    if (!button)
+        return;
+    const id = button.dataset.dropdownOpen;
+    if (!id)
+        return;
+    const dropdown = document.createElement('div');
+    dropdown.classList.add('dropdown', className);
+    dropdown.dataset.dropdown = id;
+    dropdown.innerHTML = `
     <div class="dropdown__content" data-dropdown-content>
         ${content}
         
         <button data-dropdown-close>Х</button>
     </div>   
   `;
-  button.parentNode.insertBefore(dropdown, button.nextSibling);
-  dropdown.prepend(button);
+    // @ts-ignore
+    button.parentNode.insertBefore(dropdown, button.nextSibling);
+    dropdown.prepend(button);
 }
-
 function Dropdown() {
-  let _isOpen = false;
-
-  function open(id) {
-    const selector = `[data-dropdown="${id}"]`;
-    const dropdown = document.querySelector(selector);
-    if (!dropdown) return;
-    dropdown.classList.add('dropdown_open');
-    setTimeout(() => {
-      dropdown.classList.add('dropdown_visible');
-    }, 300);
-  }
-
-  function close(dropdown) {
-    dropdown.classList.remove('dropdown_visible');
-    setTimeout(() => {
-      dropdown.classList.remove('dropdown_open');
-    }, 200);
-  }
-
-  function closeAll() {
-    const selector = `[data-dropdown]`;
-    const dropdowns = Array.from(document.querySelectorAll(selector));
-    dropdowns.forEach(item => {
-      close(item); // enablePageScroll(item);
-    }); // clearQueueScrollLocks();
-  }
-
-  function documentClickHandler(e) {
-    const {
-      target
-    } = e;
-
-    if (_isOpen) {
-      // Close all
-      const currentDropdown = target.closest('[data-dropdown]');
-      const closeBtn = target.closest('[data-dropdown-close]');
-      const openBtn = target.closest('[data-dropdown-open]');
-
-      if (!currentDropdown || closeBtn || openBtn) {
-        closeAll();
-        _isOpen = false;
-      } // clearQueueScrollLocks();
-      // enablePageScroll(currentDropdown);
-
-    } else {
-      const dropdownTrigger = target.closest('[data-dropdown-open]');
-      if (!dropdownTrigger) return; // Open
-
-      const id = dropdownTrigger.dataset.dropdownOpen;
-
-      if (id) {
-        open(id); // disablePageScroll();
-
-        _isOpen = true;
-      }
+    let _isOpen = false;
+    function open(id) {
+        const selector = `[data-dropdown="${id}"]`;
+        const dropdown = document.querySelector(selector);
+        if (!dropdown)
+            return;
+        dropdown.classList.add('dropdown_open');
+        setTimeout(() => {
+            dropdown.classList.add('dropdown_visible');
+        }, 300);
     }
-  }
-
-  function documentKeyupHandler(e) {
-    if (e.key === 'Escape') {
-      closeAll();
-      _isOpen = false;
+    function close(dropdown) {
+        dropdown.classList.remove('dropdown_visible');
+        setTimeout(() => {
+            dropdown.classList.remove('dropdown_open');
+        }, 200);
     }
-  }
-
-  function init() {
-    document.addEventListener('click', documentClickHandler);
-    document.addEventListener('keyup', documentKeyupHandler);
-  }
-
-  function destroy() {
-    document.removeEventListener('click', documentClickHandler);
-    document.removeEventListener('keyup', documentKeyupHandler);
-  }
-
-  return {
-    init,
-    destroy,
-    open,
-    close,
-    createDropdown
-  };
-}
-
-
-
-class MyClass {}
-
-/***/ }),
-
-/***/ "./src/components/form/Form.js":
-/*!*************************************!*\
-  !*** ./src/components/form/Form.js ***!
-  \*************************************/
-/*! exports provided: Form */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Form", function() { return Form; });
-/* harmony import */ var _components_form_form_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/components/form/form.utils */ "./src/components/form/form.utils.js");
-
-
-function Form() {
-  let _isFormValid = null;
-
-  function reset(form) {
-    const inputs = Array.from(form.querySelectorAll('input, select, textarea'));
-    Object(_components_form_form_utils__WEBPACK_IMPORTED_MODULE_0__["hideAllError"])(inputs);
-  }
-
-  function validate(form) {
-    if (!form) return;
-    reset(form);
-    const inputs = Array.from(form.querySelectorAll('input, select, textarea'));
-    _isFormValid = Object(_components_form_form_utils__WEBPACK_IMPORTED_MODULE_0__["checkInputs"])(inputs);
-  }
-
-  function documentFocusHandler(e) {
-    const {
-      target
-    } = e;
-    if (!target) return;
-    const form = target.closest('[data-form]');
-    validate(form);
-  }
-
-  function documentBlurHandler(e) {
-    const {
-      target
-    } = e;
-    if (!target) return;
-    const form = target.closest('[data-form]');
-    validate(form);
-  }
-
-  function documentInputHandler(e) {
-    const {
-      target
-    } = e;
-    if (!target) return;
-    const form = target.closest('[data-form]');
-    validate(form);
-  }
-
-  function documentChangeHandler(e) {
-    const {
-      target
-    } = e;
-    if (!target) return;
-    const form = target.closest('[data-form]');
-    validate(form);
-  }
-
-  function documentSubmitHandler(e) {
-    e.preventDefault();
-    const form = e.target.closest('[data-form]');
-    validate(form);
-
-    if (_isFormValid) {
-      console.log('Submit'); // form.submit();
+    function closeAll() {
+        const selector = `[data-dropdown]`;
+        const dropdowns = Array.from(document.querySelectorAll(selector));
+        dropdowns.forEach(item => {
+            close(item);
+            // enablePageScroll(item);
+        });
+        // clearQueueScrollLocks();
     }
-  }
-
-  function init() {
-    const forms = Array.from(document.forms);
-    forms.forEach(form => {
-      const inputs = Array.from(form.querySelectorAll('[required]'));
-      inputs.forEach(input => {
-        // eslint-disable-next-line no-param-reassign
-        input.dataset.required = true; // eslint-disable-next-line no-param-reassign
-
-        input.required = false; // TODO Менять атрибут type у полей по словарю
-        // email -> text
-        // datetime -> text
-
-        if (input.type === 'email') {
-          // eslint-disable-next-line no-param-reassign
-          input.type = 'text';
+    function documentClickHandler(e) {
+        const target = e.target;
+        if (_isOpen) {
+            // Close all
+            const currentDropdown = target.closest('[data-dropdown]');
+            const closeBtn = target.closest('[data-dropdown-close]');
+            const openBtn = target.closest('[data-dropdown-open]');
+            if (!currentDropdown || closeBtn || openBtn) {
+                closeAll();
+                _isOpen = false;
+            }
+            // clearQueueScrollLocks();
+            // enablePageScroll(currentDropdown);
         }
-      });
-    });
-    document.addEventListener('focus', documentFocusHandler);
-    document.addEventListener('blur', documentBlurHandler);
-    document.addEventListener('input', documentInputHandler);
-    document.addEventListener('change', documentChangeHandler);
-    document.addEventListener('submit', documentSubmitHandler);
-  }
-
-  function destroy() {
-    const forms = Array.from(document.forms);
-    forms.forEach(form => {
-      const inputs = Array.from(form.querySelectorAll('[data-required]'));
-      inputs.forEach(input => {
-        // eslint-disable-next-line no-param-reassign
-        input.required = true;
-      });
-    });
-    document.addEventListener('focus', documentFocusHandler);
-    document.addEventListener('blur', documentBlurHandler);
-    document.addEventListener('input', documentInputHandler);
-    document.addEventListener('change', documentChangeHandler);
-    document.addEventListener('submit', documentSubmitHandler);
-  }
-
-  return {
-    init,
-    destroy,
-    isFormValid: _isFormValid,
-    validate,
-    reset,
-    getFormData: _components_form_form_utils__WEBPACK_IMPORTED_MODULE_0__["getFormData"],
-    createError: _components_form_form_utils__WEBPACK_IMPORTED_MODULE_0__["createError"]
-  };
+        else {
+            const dropdownTrigger = target.closest('[data-dropdown-open]');
+            if (!dropdownTrigger)
+                return;
+            // Open
+            const id = dropdownTrigger.dataset.dropdownOpen;
+            if (id) {
+                open(id);
+                // disablePageScroll();
+                _isOpen = true;
+            }
+        }
+    }
+    function documentKeyupHandler(e) {
+        if (e.key === 'Escape') {
+            closeAll();
+            _isOpen = false;
+        }
+    }
+    function init() {
+        document.addEventListener('click', documentClickHandler);
+        document.addEventListener('keyup', documentKeyupHandler);
+    }
+    function destroy() {
+        document.removeEventListener('click', documentClickHandler);
+        document.removeEventListener('keyup', documentKeyupHandler);
+    }
+    return {
+        init,
+        destroy,
+        open,
+        close,
+        createDropdown
+    };
 }
-
+exports.Dropdown = Dropdown;
 
 
 /***/ }),
 
-/***/ "./src/components/form/form.utils.js":
-/*!*******************************************!*\
-  !*** ./src/components/form/form.utils.js ***!
-  \*******************************************/
-/*! exports provided: defaultErrorsMsg, createError, showError, hideError, hideAllError, getFormData, getValue, getRules, getErrorMessage, checkValue, checkInputs */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ "./src/components/form/Form.ts":
+/*!*************************************!*\
+  !*** ./src/components/form/Form.ts ***!
+  \*************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "defaultErrorsMsg", function() { return defaultErrorsMsg; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createError", function() { return createError; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "showError", function() { return showError; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hideError", function() { return hideError; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hideAllError", function() { return hideAllError; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getFormData", function() { return getFormData; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getValue", function() { return getValue; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getRules", function() { return getRules; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getErrorMessage", function() { return getErrorMessage; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "checkValue", function() { return checkValue; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "checkInputs", function() { return checkInputs; });
-/* harmony import */ var is_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! is_js */ "./node_modules/is_js/is.js");
-/* harmony import */ var is_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(is_js__WEBPACK_IMPORTED_MODULE_0__);
- // error-empty
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.Form = void 0;
+const form_utils_1 = __webpack_require__(/*! @/components/form/form.utils */ "./src/components/form/form.utils.ts");
+function Form() {
+    let _isFormValid = null;
+    function reset(form) {
+        const inputs = Array.from(form.querySelectorAll('input, select, textarea'));
+        (0, form_utils_1.hideAllError)(inputs);
+    }
+    function validate(form) {
+        if (!form)
+            return;
+        reset(form);
+        const inputs = Array.from(form.querySelectorAll('input, select, textarea'));
+        _isFormValid = (0, form_utils_1.checkInputs)(inputs);
+    }
+    function documentFocusHandler(e) {
+        const target = e.target;
+        if (!target)
+            return;
+        const form = target.closest('[data-form]');
+        validate(form);
+    }
+    function documentBlurHandler(e) {
+        const target = e.target;
+        if (!target)
+            return;
+        const form = target.closest('[data-form]');
+        validate(form);
+    }
+    function documentInputHandler(e) {
+        const target = e.target;
+        if (!target)
+            return;
+        const form = target.closest('[data-form]');
+        validate(form);
+    }
+    function documentChangeHandler(e) {
+        const target = e.target;
+        if (!target)
+            return;
+        const form = target.closest('[data-form]');
+        validate(form);
+    }
+    function documentSubmitHandler(e) {
+        const target = e.target;
+        e.preventDefault();
+        const form = target.closest('[data-form]');
+        validate(form);
+        if (_isFormValid) {
+            console.log('Submit');
+            // form.submit();
+        }
+    }
+    function init() {
+        const forms = Array.from(document.forms);
+        forms.forEach(form => {
+            const inputs = Array.from(form.querySelectorAll('[required]'));
+            inputs.forEach(input => {
+                input.dataset.required = '';
+                input.required = false;
+                // TODO Менять атрибут type у полей по словарю
+                // email -> text
+                // datetime -> text
+                if (input.type === 'email') {
+                    input.type = 'text';
+                }
+            });
+        });
+        document.addEventListener('focus', documentFocusHandler);
+        document.addEventListener('blur', documentBlurHandler);
+        document.addEventListener('input', documentInputHandler);
+        document.addEventListener('change', documentChangeHandler);
+        document.addEventListener('submit', documentSubmitHandler);
+    }
+    function destroy() {
+        const forms = Array.from(document.forms);
+        forms.forEach(form => {
+            const inputs = Array.from(form.querySelectorAll('[data-required]'));
+            inputs.forEach(input => {
+                input.required = true;
+            });
+        });
+        document.addEventListener('focus', documentFocusHandler);
+        document.addEventListener('blur', documentBlurHandler);
+        document.addEventListener('input', documentInputHandler);
+        document.addEventListener('change', documentChangeHandler);
+        document.addEventListener('submit', documentSubmitHandler);
+    }
+    return {
+        init,
+        destroy,
+        isFormValid: _isFormValid,
+        validate,
+        reset,
+        getFormData: form_utils_1.getFormData,
+        createError: form_utils_1.createError
+    };
+}
+exports.Form = Form;
+
+
+/***/ }),
+
+/***/ "./src/components/form/form.utils.ts":
+/*!*******************************************!*\
+  !*** ./src/components/form/form.utils.ts ***!
+  \*******************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.checkInputs = exports.checkValue = exports.getErrorMessage = exports.getRules = exports.getValue = exports.getFormData = exports.hideAllError = exports.hideError = exports.showError = exports.createError = exports.defaultErrorsMsg = void 0;
+const is_js_1 = __importDefault(__webpack_require__(/*! is_js */ "./node_modules/is_js/is.js"));
+// error-empty
 // error-len
 // error-phone
 // error-email
-
-const defaultErrorsMsg = {
-  empty: 'Поле не должно быть пустым',
-  minlen: x => `Минимальная длина ${x} символов`,
-  maxlen: x => `Максимальная длина ${x} символов`,
-  phone: 'Неверный формат номера телефона',
-  email: 'Неверный формат e-mail'
+exports.defaultErrorsMsg = {
+    empty: 'Поле не должно быть пустым',
+    minlen: (x) => `Минимальная длина ${x} символов`,
+    maxlen: (x) => `Максимальная длина ${x} символов`,
+    phone: 'Неверный формат номера телефона',
+    email: 'Неверный формат e-mail'
 };
 function createError(content, formItem = null) {
-  const error = document.createElement('span');
-  error.classList.add('error', 'form__error');
-  error.dataset.error = '';
-  error.innerHTML = content;
-
-  if (formItem) {
-    formItem.append(error);
-  }
-
-  return error;
+    const error = document.createElement('span');
+    error.classList.add('error', 'form__error');
+    error.dataset.error = '';
+    error.innerHTML = content;
+    if (formItem) {
+        formItem.append(error);
+    }
+    return error;
 }
+exports.createError = createError;
 function showError(item, msg) {
-  if (!item) return;
-  let error = item.querySelector('[data-error]');
-
-  if (!error) {
-    error = createError(msg, item);
-  }
-
-  error.classList.add('error_shown');
+    if (!item)
+        return;
+    let error = item.querySelector('[data-error]');
+    if (!error) {
+        error = createError(msg, item);
+    }
+    error.classList.add('error_shown');
 }
+exports.showError = showError;
 function hideError(item) {
-  if (!item) return;
-  const error = item.querySelector('[data-error]');
-  if (!error) return;
-  error.classList.add('error_hide');
+    if (!item)
+        return;
+    const error = item.querySelector('[data-error]');
+    if (!error)
+        return;
+    error.classList.add('error_hide');
 }
+exports.hideError = hideError;
 function hideAllError(items) {
-  items.forEach(item => {
-    hideError(item);
-  });
+    items.forEach(item => {
+        hideError(item);
+    });
 }
+exports.hideAllError = hideAllError;
 function getFormData(selector) {
-  let form = null;
-
-  if (typeof selector === 'string') {
-    form = document.querySelector(selector);
-  } else {
-    form = selector;
-  }
-
-  return new FormData(form);
+    let form = null;
+    if (typeof selector === 'string') {
+        form = document.querySelector(selector);
+    }
+    if (selector instanceof Element) {
+        form = selector;
+    }
+    return new FormData(form);
 }
+exports.getFormData = getFormData;
 function getValue(input) {
-  if (input.tagName === 'INPUT') {
-    if (input.type === 'checkbox' || input.type === 'radio') {
-      let inputValue = null;
-
-      if (input.checked && input.value === 'on') {
-        inputValue = input.name;
-      } else if (input.checked && input.value !== 'on') {
-        inputValue = input.value;
-      } else if (!input.checked) {
-        inputValue = null;
-      }
-
-      return inputValue;
+    if (input.tagName === 'INPUT') {
+        if (input.type === 'checkbox' || input.type === 'radio') {
+            let inputValue = null;
+            if (input.checked && input.value === 'on') {
+                inputValue = input.name;
+            }
+            else if (input.checked && input.value !== 'on') {
+                inputValue = input.value;
+            }
+            else if (!input.checked) {
+                inputValue = null;
+            }
+            return inputValue;
+        }
+        return input.value;
     }
-
+    if (input.tagName === 'SELECT') {
+        return input.value;
+    }
+    if (input.tagName === 'TEXTAREA') {
+        return input.value;
+    }
     return input.value;
-  }
-
-  if (input.tagName === 'SELECT') {
-    return input.value;
-  }
-
-  if (input.tagName === 'TEXTAREA') {
-    return input.value;
-  }
-
-  return input.value;
 }
+exports.getValue = getValue;
 function getRules(input) {
-  const rules = [];
-
-  if ('errorEmpty' in input.dataset || input.dataset.required) {
-    rules.push('empty');
-  }
-
-  if ('errorLen' in input.dataset) {
-    rules.push('len'); // TODO Добавить передачу значения
-  }
-
-  if ('errorPhoneMsg' in input.dataset) {
-    rules.push('phone');
-  }
-
-  if ('errorEmailMsg' in input.dataset) {
-    rules.push('email');
-  }
-
-  return [];
-}
-function getErrorMessage(input, error) {
-  let errorMsg = null; // error-empty
-  // error-len
-  // error-phone
-  // error-email
-
-  if (error === 'empty') {
-    if ('errorEmptyMsg' in input.dataset) {
-      errorMsg = input.dataset.errorEmptyMsg;
-    } else {
-      errorMsg = defaultErrorsMsg[error];
+    const rules = [];
+    if ('errorEmpty' in input.dataset || input.dataset.required) {
+        rules.push('empty');
     }
-  } else if (error === 'maxlen') {
-    if ('errorLenMsg' in input.dataset) {
-      errorMsg = input.dataset.errorEmptyMsg;
-    } else {
-      errorMsg = defaultErrorsMsg[error](input.dataset.errorLen);
+    if ('errorLen' in input.dataset) {
+        rules.push('len'); // TODO Добавить передачу значения
     }
-  } else if (error === 'minlen') {
-    if ('errorLenMsg' in input.dataset) {
-      errorMsg = input.dataset.errorEmptyMsg;
-    } else {
-      errorMsg = defaultErrorsMsg[error](input.dataset.errorLen);
-    }
-  } else if (error === 'phone') {
     if ('errorPhoneMsg' in input.dataset) {
-      errorMsg = input.dataset.errorEmptyMsg;
-    } else {
-      errorMsg = defaultErrorsMsg[error];
+        rules.push('phone');
     }
-  } else if (error === 'email') {
     if ('errorEmailMsg' in input.dataset) {
-      errorMsg = input.dataset.errorEmptyMsg;
-    } else {
-      errorMsg = defaultErrorsMsg[error];
+        rules.push('email');
     }
-  } else {
-    errorMsg = 'Неверный формат';
-  }
-
-  return errorMsg;
+    return [];
 }
+exports.getRules = getRules;
+function getErrorMessage(input, error) {
+    let errorMsg = null;
+    // error-empty
+    // error-len
+    // error-phone
+    // error-email
+    if (error === 'empty') {
+        if ('errorEmptyMsg' in input.dataset) {
+            errorMsg = input.dataset.errorEmptyMsg;
+        }
+        else {
+            errorMsg = exports.defaultErrorsMsg[error];
+        }
+    }
+    else if (error === 'maxlen') {
+        if ('errorLenMsg' in input.dataset) {
+            errorMsg = input.dataset.errorEmptyMsg;
+        }
+        else {
+            errorMsg = exports.defaultErrorsMsg[error](input.dataset.errorLen);
+        }
+    }
+    else if (error === 'minlen') {
+        if ('errorLenMsg' in input.dataset) {
+            errorMsg = input.dataset.errorEmptyMsg;
+        }
+        else {
+            errorMsg = exports.defaultErrorsMsg[error](input.dataset.errorLen);
+        }
+    }
+    else if (error === 'phone') {
+        if ('errorPhoneMsg' in input.dataset) {
+            errorMsg = input.dataset.errorEmptyMsg;
+        }
+        else {
+            errorMsg = exports.defaultErrorsMsg[error];
+        }
+    }
+    else if (error === 'email') {
+        if ('errorEmailMsg' in input.dataset) {
+            errorMsg = input.dataset.errorEmptyMsg;
+        }
+        else {
+            errorMsg = exports.defaultErrorsMsg[error];
+        }
+    }
+    else {
+        errorMsg = 'Неверный формат';
+    }
+    return errorMsg;
+}
+exports.getErrorMessage = getErrorMessage;
 function checkValue(value, rules = []) {
-  let result = null; // eslint-disable-next-line no-plusplus
-
-  for (let i = 0; i < rules.length; i++) {
-    const rule = rules[i];
-
-    if (rule === 'empty') {
-      is_js__WEBPACK_IMPORTED_MODULE_0___default.a.empty(value);
-      result = rule;
+    let result = null;
+    // eslint-disable-next-line no-plusplus
+    for (let i = 0; i < rules.length; i++) {
+        const rule = rules[i];
+        if (rule === 'empty') {
+            is_js_1.default.empty(value);
+            result = rule;
+        }
+        if (rule === 'phone') {
+            is_js_1.default.empty(value);
+            result = rule;
+        }
+        if (rule === 'email') {
+            is_js_1.default.empty(value);
+            result = rule;
+        }
+        if (result)
+            break;
     }
-
-    if (rule === 'phone') {
-      is_js__WEBPACK_IMPORTED_MODULE_0___default.a.empty(value);
-      result = rule;
-    }
-
-    if (rule === 'email') {
-      is_js__WEBPACK_IMPORTED_MODULE_0___default.a.empty(value);
-      result = rule;
-    }
-
-    if (result) break;
-  }
-
-  return result;
+    return result;
 }
+exports.checkValue = checkValue;
 function checkInputs(inputs) {
-  let isFormValid = true;
-  inputs.forEach(input => {
-    const value = getValue(input);
-    const rules = getRules(input);
-    console.log(value, rules);
-    const failedRule = checkValue(value, rules);
-
-    if (!failedRule) {
-      const msg = getErrorMessage(input, failedRule);
-      showError(input, msg);
-    }
-
-    if (isFormValid) {
-      isFormValid = !!failedRule;
-    }
-  });
-  console.log(isFormValid);
-  return isFormValid;
+    let isFormValid = true;
+    inputs.forEach(input => {
+        const value = getValue(input);
+        const rules = getRules(input);
+        console.log(value, rules);
+        const failedRule = checkValue(value, rules);
+        if (!failedRule) {
+            const msg = getErrorMessage(input, failedRule);
+            showError(input, msg);
+        }
+        if (isFormValid) {
+            isFormValid = !!failedRule;
+        }
+    });
+    console.log(isFormValid);
+    return isFormValid;
 }
+exports.checkInputs = checkInputs;
+
 
 /***/ }),
 
-/***/ "./src/components/modal/Modal.js":
+/***/ "./src/components/modal/Modal.ts":
 /*!***************************************!*\
-  !*** ./src/components/modal/Modal.js ***!
+  !*** ./src/components/modal/Modal.ts ***!
   \***************************************/
-/*! exports provided: Modal */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Modal", function() { return Modal; });
-/* harmony import */ var scroll_lock__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! scroll-lock */ "./node_modules/scroll-lock/dist/scroll-lock.js");
-/* harmony import */ var scroll_lock__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(scroll_lock__WEBPACK_IMPORTED_MODULE_0__);
 
-
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.Modal = void 0;
+const scroll_lock_1 = __webpack_require__(/*! scroll-lock */ "./node_modules/scroll-lock/dist/scroll-lock.js");
 function createOverlay() {
-  const overlay = document.createElement('div');
-  overlay.classList.add('modal-overlay');
-  document.body.append(overlay);
-  return overlay;
+    const overlay = document.createElement('div');
+    overlay.classList.add('modal-overlay');
+    document.body.append(overlay);
+    return overlay;
 }
-
 function createModal(content, id) {
-  const modal = document.createElement('div');
-  modal.classList.add('modal');
-  modal.dataset.modal = id;
-  modal.innerHTML = `
+    const modal = document.createElement('div');
+    modal.classList.add('modal');
+    modal.dataset.modal = id;
+    modal.innerHTML = `
       <div class="modal__content" data-modal-content>
           <div class="modal__close" data-modal-close>
             <svg viewBox="0 0 20 20" id="burger-close-desktop" xmlns="http://www.w3.org/2000/svg">
@@ -2781,152 +2906,211 @@ function createModal(content, id) {
           </div>
       </div>
     `;
-  document.body.append(modal);
+    document.body.append(modal);
 }
-
 function showModal(id) {
-  const selector = `[data-modal="${id}"]`;
-  const modal = document.querySelector(selector);
-  if (!modal) return;
-  modal.classList.add('modal_open');
-  setTimeout(() => {
-    modal.classList.add('modal_visible');
-  }, 300);
-}
-
-function hideModal(modal) {
-  modal.classList.remove('modal_visible');
-  setTimeout(() => {
-    modal.classList.remove('modal_open');
-  }, 200);
-}
-
-function showOverlay(overlay) {
-  overlay.classList.add('modal-overlay_open');
-  setTimeout(() => {
-    overlay.classList.add('modal-overlay_visible');
-  }, 300);
-}
-
-function hideOverlay(overlay) {
-  overlay.classList.remove('modal-overlay_visible');
-  setTimeout(() => {
-    overlay.classList.remove('modal-overlay_open');
-  }, 500);
-}
-
-const Modal = (type = 'default') => {
-  const _type = type;
-  let _modal = null;
-  let _overlay = null;
-  let _isOpen = false;
-  const overlay = document.querySelector('[data-modal-overlay]');
-
-  if (!overlay) {
-    _overlay = createOverlay();
-  } else {
-    _overlay = overlay;
-  }
-
-  function open(id) {
-    // TODO
-    // Проверить существует ли модалки и попробовать ее получение из ajax, из атрибута
-    // data-modal-content // Строка
-    // data-modal-content-ajax // Урл запроса для ajax
-    // data-modal-content-base64 // Строка base64. Разобрать и вывести в контент
-    // Добавить событие открытия
-    // Добавить событие закрытия
-    if (_type === 'default') {
-      showOverlay(_overlay);
-    }
-
-    _modal = showModal(id);
-    _isOpen = true;
-  }
-
-  function close(item) {
-    hideModal(item);
+    const selector = `[data-modal="${id}"]`;
+    const modal = document.querySelector(selector);
+    if (!modal)
+        return;
+    modal.classList.add('modal_open');
     setTimeout(() => {
-      if (_type === 'default') {
-        hideOverlay(_overlay);
-      }
-
-      _isOpen = false;
+        modal.classList.add('modal_visible');
+    }, 300);
+    return modal;
+}
+function hideModal(modal) {
+    modal.classList.remove('modal_visible');
+    setTimeout(() => {
+        modal.classList.remove('modal_open');
     }, 200);
-  }
-
-  function closeAll() {
-    const selector = `[data-modal]`;
-    const modals = Array.from(document.querySelectorAll(selector));
-    modals.forEach(item => {
-      close(item);
-      Object(scroll_lock__WEBPACK_IMPORTED_MODULE_0__["enablePageScroll"])(item);
-    });
-    Object(scroll_lock__WEBPACK_IMPORTED_MODULE_0__["clearQueueScrollLocks"])();
-  }
-
-  function documentClickHandler(e) {
-    const {
-      target
-    } = e;
-
-    if (_isOpen) {
-      // Close all modals
-      const currentModal = target.closest('[data-modal-content]');
-      const closeBtn = target.closest('[data-modal-close]');
-
-      if (!currentModal || closeBtn) {
-        closeAll();
-        _isOpen = false;
-      }
-
-      Object(scroll_lock__WEBPACK_IMPORTED_MODULE_0__["clearQueueScrollLocks"])();
-      Object(scroll_lock__WEBPACK_IMPORTED_MODULE_0__["enablePageScroll"])(currentModal);
-    } else {
-      const modalTrigger = target.closest('[data-modal-open]');
-      if (!modalTrigger) return; // Open modal
-
-      const modalId = modalTrigger.dataset.modalOpen;
-
-      if (modalId) {
-        open(modalId);
-        Object(scroll_lock__WEBPACK_IMPORTED_MODULE_0__["disablePageScroll"])();
+}
+function showOverlay(overlay) {
+    overlay.classList.add('modal-overlay_open');
+    setTimeout(() => {
+        overlay.classList.add('modal-overlay_visible');
+    }, 300);
+}
+function hideOverlay(overlay) {
+    overlay.classList.remove('modal-overlay_visible');
+    setTimeout(() => {
+        overlay.classList.remove('modal-overlay_open');
+    }, 500);
+}
+const Modal = (type = 'default') => {
+    const _type = type;
+    let _modal = null;
+    let _overlay = null;
+    let _isOpen = false;
+    const overlay = document.querySelector('[data-modal-overlay]');
+    if (!overlay) {
+        _overlay = createOverlay();
+    }
+    else {
+        _overlay = overlay;
+    }
+    function open(id) {
+        /* TODO
+          Проверить существует ли модалки и попробовать ее получение из ajax, из атрибута
+          data-modal-content // Строка
+          data-modal-content-ajax // Урл запроса для ajax
+          data-modal-content-base64 // Строка base64. Разобрать и вывести в контент
+          Добавить событие открытия
+          Добавить событие закрытия
+         */
+        if (_type === 'default') {
+            showOverlay(_overlay);
+        }
+        _modal = showModal(id);
         _isOpen = true;
-      }
     }
-  }
-
-  function documentKeyupHandler(e) {
-    if (e.key === 'Escape') {
-      closeAll();
-      _isOpen = false;
+    function close(item) {
+        hideModal(item);
+        setTimeout(() => {
+            if (_type === 'default') {
+                hideOverlay(_overlay);
+            }
+            _isOpen = false;
+        }, 200);
     }
-  }
-
-  function init() {
-    document.addEventListener('click', documentClickHandler);
-    document.addEventListener('keyup', documentKeyupHandler);
-  }
-
-  function destroy() {
-    document.removeEventListener('click', documentClickHandler);
-    document.removeEventListener('keyup', documentKeyupHandler);
-  }
-
-  return {
-    open,
-    close,
-    init,
-    destroy,
-    createModal,
-    modal: _modal,
-    isOpen: _isOpen
-  };
+    function closeAll() {
+        const selector = `[data-modal]`;
+        const modals = Array.from(document.querySelectorAll(selector));
+        modals.forEach(item => {
+            close(item);
+            (0, scroll_lock_1.enablePageScroll)(item);
+        });
+        (0, scroll_lock_1.clearQueueScrollLocks)();
+    }
+    function documentClickHandler(e) {
+        const target = e.target;
+        if (_isOpen) {
+            // Close all modals
+            const currentModal = target.closest('[data-modal-content]');
+            const closeBtn = target.closest('[data-modal-close]');
+            if (!currentModal || closeBtn) {
+                closeAll();
+                _isOpen = false;
+            }
+            (0, scroll_lock_1.clearQueueScrollLocks)();
+            (0, scroll_lock_1.enablePageScroll)(currentModal);
+        }
+        else {
+            const modalTrigger = target.closest('[data-modal-open]');
+            if (!modalTrigger)
+                return;
+            // Open modal
+            const modalId = modalTrigger.dataset.modalOpen;
+            if (modalId) {
+                open(modalId);
+                (0, scroll_lock_1.disablePageScroll)();
+                _isOpen = true;
+            }
+        }
+    }
+    function documentKeyupHandler(e) {
+        if (e.key === 'Escape') {
+            closeAll();
+            _isOpen = false;
+        }
+    }
+    function init() {
+        document.addEventListener('click', documentClickHandler);
+        document.addEventListener('keyup', documentKeyupHandler);
+    }
+    function destroy() {
+        document.removeEventListener('click', documentClickHandler);
+        document.removeEventListener('keyup', documentKeyupHandler);
+    }
+    return {
+        open,
+        close,
+        init,
+        destroy,
+        createModal,
+        modal: _modal,
+        isOpen: _isOpen
+    };
 };
-
+exports.Modal = Modal;
 
 
 /***/ })
 
-/******/ });
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	!function() {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = function(exports, definition) {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	}();
+/******/ 	
+/******/ 	/* webpack/runtime/global */
+/******/ 	!function() {
+/******/ 		__webpack_require__.g = (function() {
+/******/ 			if (typeof globalThis === 'object') return globalThis;
+/******/ 			try {
+/******/ 				return this || new Function('return this')();
+/******/ 			} catch (e) {
+/******/ 				if (typeof window === 'object') return window;
+/******/ 			}
+/******/ 		})();
+/******/ 	}();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	!function() {
+/******/ 		__webpack_require__.o = function(obj, prop) { return Object.prototype.hasOwnProperty.call(obj, prop); }
+/******/ 	}();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	!function() {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = function(exports) {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	}();
+/******/ 	
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module is referenced by other modules so it can't be inlined
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/assets/scripts/main.ts");
+/******/ 	
+/******/ })()
+;
 //# sourceMappingURL=app.js.map

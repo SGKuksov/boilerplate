@@ -6,12 +6,12 @@
 //  See https://www.npmjs.com/package/critical for more options.
 //
 
-module.exports = {
+module.exports = (options) => ({
   base: 'build/',
   inline: true,
   minify: true,
   width: 1920,
   height: 1080,
-  css: ['build/css/style.css'],
-  ignore: ['@font-face', /url\(/]
-};
+  css: options.css,
+  ignore: ['@font-face', /url\(/],
+});

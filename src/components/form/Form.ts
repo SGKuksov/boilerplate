@@ -1,57 +1,58 @@
 import { createError, hideAllError, checkInputs, getFormData } from '@/components/form/form.utils';
 
 function Form() {
-  let _isFormValid = null;
+  let _isFormValid: boolean | null = null;
 
-  function reset(form) {
-    const inputs = Array.from(form.querySelectorAll('input, select, textarea'));
+  function reset(form: { querySelectorAll: (arg0: string) => Iterable<unknown> | ArrayLike<unknown>; }) {
+    const inputs = Array.from(form.querySelectorAll('input, select, textarea')) as HTMLInputElement[];
     hideAllError(inputs);
   }
 
-  function validate(form) {
+  function validate(form: HTMLElement) {
     if (!form) return;
     reset(form);
 
-    const inputs = Array.from(form.querySelectorAll('input, select, textarea'));
+    const inputs = Array.from(form.querySelectorAll('input, select, textarea')) as HTMLInputElement[];
     _isFormValid = checkInputs(inputs);
   }
 
-  function documentFocusHandler(e) {
-    const { target } = e;
+  function documentFocusHandler(e: FocusEvent) {
+    const target = e.target as HTMLElement;
 
     if (!target) return;
-    const form = target.closest('[data-form]');
+    const form = target.closest('[data-form]') as HTMLElement;
     validate(form);
   }
 
-  function documentBlurHandler(e) {
-    const { target } = e;
+  function documentBlurHandler(e: FocusEvent) {
+    const target = e.target as HTMLElement;
 
     if (!target) return;
-    const form = target.closest('[data-form]');
+    const form = target.closest('[data-form]') as HTMLElement;
     validate(form);
   }
 
-  function documentInputHandler(e) {
-    const { target } = e;
+  function documentInputHandler(e: Event) {
+    const target = e.target as HTMLElement;
 
     if (!target) return;
-    const form = target.closest('[data-form]');
+    const form = target.closest('[data-form]') as HTMLElement;
     validate(form);
   }
 
-  function documentChangeHandler(e) {
-    const { target } = e;
+  function documentChangeHandler(e: Event) {
+    const target = e.target as HTMLElement;
 
     if (!target) return;
-    const form = target.closest('[data-form]');
+    const form = target.closest('[data-form]') as HTMLElement;
     validate(form);
   }
 
-  function documentSubmitHandler(e) {
+  function documentSubmitHandler(e: Event) {
+    const target = e.target as HTMLElement;
     e.preventDefault();
 
-    const form = e.target.closest('[data-form]');
+    const form = target.closest('[data-form]') as HTMLElement;
     validate(form);
 
     if (_isFormValid) {
@@ -63,12 +64,10 @@ function Form() {
   function init() {
     const forms = Array.from(document.forms);
     forms.forEach(form => {
-      const inputs = Array.from(form.querySelectorAll('[required]'));
+      const inputs = Array.from(form.querySelectorAll('[required]')) as HTMLInputElement[];
 
       inputs.forEach(input => {
-        // eslint-disable-next-line no-param-reassign
-        input.dataset.required = true;
-        // eslint-disable-next-line no-param-reassign
+        input.dataset.required = '';
         input.required = false;
 
         // TODO Менять атрибут type у полей по словарю
@@ -76,7 +75,6 @@ function Form() {
         // datetime -> text
 
         if (input.type === 'email') {
-          // eslint-disable-next-line no-param-reassign
           input.type = 'text';
         }
       });
@@ -92,10 +90,9 @@ function Form() {
   function destroy() {
     const forms = Array.from(document.forms);
     forms.forEach(form => {
-      const inputs = Array.from(form.querySelectorAll('[data-required]'));
+      const inputs = Array.from(form.querySelectorAll('[data-required]')) as HTMLInputElement[];
 
       inputs.forEach(input => {
-        // eslint-disable-next-line no-param-reassign
         input.required = true;
       });
     });

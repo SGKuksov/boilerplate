@@ -1,13 +1,13 @@
 import { disablePageScroll, enablePageScroll, clearQueueScrollLocks } from 'scroll-lock';
 
-function createOverlay() {
+function createOverlay(): HTMLElement {
   const overlay = document.createElement('div');
   overlay.classList.add('modal-overlay');
   document.body.append(overlay);
   return overlay;
 }
 
-function createModal(content, id) {
+function createModal(content: string, id: string) {
   const modal = document.createElement('div');
   modal.classList.add('modal');
   modal.dataset.modal = id;
@@ -30,7 +30,7 @@ function createModal(content, id) {
   document.body.append(modal);
 }
 
-function showModal(id) {
+function showModal(id: string) {
   const selector = `[data-modal="${id}"]`;
   const modal = document.querySelector(selector);
 
@@ -40,9 +40,11 @@ function showModal(id) {
   setTimeout(() => {
     modal.classList.add('modal_visible');
   }, 300);
+
+  return modal;
 }
 
-function hideModal(modal) {
+function hideModal(modal: HTMLElement) {
   modal.classList.remove('modal_visible');
 
   setTimeout(() => {
@@ -50,7 +52,7 @@ function hideModal(modal) {
   }, 200);
 }
 
-function showOverlay(overlay) {
+function showOverlay(overlay: HTMLElement) {
   overlay.classList.add('modal-overlay_open');
 
   setTimeout(() => {
@@ -58,7 +60,7 @@ function showOverlay(overlay) {
   }, 300);
 }
 
-function hideOverlay(overlay) {
+function hideOverlay(overlay: HTMLElement) {
   overlay.classList.remove('modal-overlay_visible');
 
   setTimeout(() => {
@@ -69,39 +71,40 @@ function hideOverlay(overlay) {
 const Modal = (type = 'default') => {
   const _type = type;
   let _modal = null;
-  let _overlay = null;
+  let _overlay: HTMLElement | null = null;
   let _isOpen = false;
 
   const overlay = document.querySelector('[data-modal-overlay]');
   if (!overlay) {
     _overlay = createOverlay();
   } else {
-    _overlay = overlay;
+    _overlay = overlay as HTMLElement;
   }
 
-  function open(id) {
-    // TODO
-    // Проверить существует ли модалки и попробовать ее получение из ajax, из атрибута
-    // data-modal-content // Строка
-    // data-modal-content-ajax // Урл запроса для ajax
-    // data-modal-content-base64 // Строка base64. Разобрать и вывести в контент
-    // Добавить событие открытия
-    // Добавить событие закрытия
+  function open(id: string) {
+    /* TODO
+      Проверить существует ли модалки и попробовать ее получение из ajax, из атрибута
+      data-modal-content // Строка
+      data-modal-content-ajax // Урл запроса для ajax
+      data-modal-content-base64 // Строка base64. Разобрать и вывести в контент
+      Добавить событие открытия
+      Добавить событие закрытия
+     */
 
     if (_type === 'default') {
-      showOverlay(_overlay);
+      showOverlay(_overlay!);
     }
 
     _modal = showModal(id);
     _isOpen = true;
   }
 
-  function close(item) {
+  function close(item: HTMLElement) {
     hideModal(item);
 
     setTimeout(() => {
       if (_type === 'default') {
-        hideOverlay(_overlay);
+        hideOverlay(_overlay!);
       }
 
       _isOpen = false;
@@ -110,7 +113,7 @@ const Modal = (type = 'default') => {
 
   function closeAll() {
     const selector = `[data-modal]`;
-    const modals = Array.from(document.querySelectorAll(selector));
+    const modals = Array.from(document.querySelectorAll(selector)) as HTMLElement[];
 
     modals.forEach(item => {
       close(item);
@@ -120,13 +123,13 @@ const Modal = (type = 'default') => {
     clearQueueScrollLocks();
   }
 
-  function documentClickHandler(e) {
-    const { target } = e;
+  function documentClickHandler(e: MouseEvent) {
+    const target = e.target as HTMLElement;
 
     if (_isOpen) {
       // Close all modals
-      const currentModal = target.closest('[data-modal-content]');
-      const closeBtn = target.closest('[data-modal-close]');
+      const currentModal = target.closest('[data-modal-content]') as HTMLElement;
+      const closeBtn = target.closest('[data-modal-close]') as HTMLElement;
 
       if (!currentModal || closeBtn) {
         closeAll();
@@ -136,7 +139,7 @@ const Modal = (type = 'default') => {
       clearQueueScrollLocks();
       enablePageScroll(currentModal);
     } else {
-      const modalTrigger = target.closest('[data-modal-open]');
+      const modalTrigger = target.closest('[data-modal-open]') as HTMLElement;
 
       if (!modalTrigger) return;
 
@@ -151,7 +154,7 @@ const Modal = (type = 'default') => {
     }
   }
 
-  function documentKeyupHandler(e) {
+  function documentKeyupHandler(e: KeyboardEvent) {
     if (e.key === 'Escape') {
       closeAll();
       _isOpen = false;
