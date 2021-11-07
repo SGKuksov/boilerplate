@@ -8,7 +8,6 @@ module.exports = {
   mode: process.env.NODE_ENV,
   entry: {
     app: config.scripts.input,
-    // 'jquery-scripts': config.scripts.jquery
   },
   output: {
     filename: '[name].js',
