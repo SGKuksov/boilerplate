@@ -1,6 +1,8 @@
 import { getLCP, getFID, getCLS } from 'web-vitals';
 import App from './App';
-import { breakpoints } from './utils/config';
+import { Dropdown } from "@/components/dropdown/Dropdown";
+import { Form } from "@/components/form/Form";
+import { Modal } from "@/components/modal/Modal";
 
 const isDev = process.env.NODE_ENV === 'development';
 
@@ -10,7 +12,13 @@ if (isDev) {
   getLCP(console.log);
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  App();
-  console.log(breakpoints);
-});
+/*
+  Передать аргумент в конструктор можно через bind()
+  Пример:
+  `Ticker.bind(null, options)`
+ */
+new App([
+  Dropdown,
+  Form,
+  Modal,
+]);

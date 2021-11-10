@@ -1,33 +1,61 @@
-// import { Modal } from '@/components/modal/Modal';
-// import { Dropdown } from '@/components/dropdown/Dropdown';
-// import { Form } from '@/components/form/Form';
+import { AppInstance, AppModule, AppModuleConstructable } from '@/assets/models';
+import { breakpoints } from './utils/config';
 
-// @ts-ignore
-import { Modal } from 'components';
 
-Modal().init();
+class App implements AppInstance {
+  public modules: AppModule[];
+  public isLoaded = false;
 
-const App = () => {
-  // Диспетчер подключения скриптов модулей
+  constructor(modules?: AppModuleConstructable[]) {
+    this.modules = modules!.map(Module => {
+      return new Module(null, this);
+    });
 
-  // // Modal
-  // Modal().init();
-  // Modal().createModal(
-  //   `
-  //   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus alias at beatae, dolore excepturi fugit harum in ipsa laudantium nemo nobis numquam perferendis perspiciatis qui quis saepe sit tenetur vero.
-  // `,
-  //   'test'
-  // );
-  // Modal().createModal(`235435757034976598067245`, 'test1');
-  //
-  // Dropdown().init();
-  // Dropdown().createDropdown(
-  //   'test',
-  //   'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
-  //   'right'
-  // );
-  //
-  // Form().init();
-};
+    this.onLoadingHandler = this.onLoadingHandler.bind(this);
+    this.onClickHandler = this.onClickHandler.bind(this);
+    this.onMatchMediaHandler = this.onMatchMediaHandler.bind(this);
+
+    this.onCreate();
+  }
+
+  onCreate() {
+    document.addEventListener('DOMContentLoaded', this.onLoadingHandler);
+    document.addEventListener('click', this.onClickHandler);
+
+    window.matchMedia(breakpoints.desktop).addEventListener('change', this.onMatchMediaHandler);
+  }
+
+  onInit() {
+    this.modules.forEach(module => module.init());
+  }
+
+  onDestroy() {
+    document.removeEventListener('DOMContentLoaded', this.onLoadingHandler);
+    document.removeEventListener('click', this.onClickHandler);
+
+    window.matchMedia(breakpoints.desktop).removeEventListener('change', this.onMatchMediaHandler);
+  }
+
+  getModule(name: string) {
+    return this.modules.find(module => module._name === name);
+  }
+
+  onLoadingHandler() {
+    this.isLoaded = true;
+    this.onInit();
+  }
+
+  onClickHandler() {
+    /*
+      Nothing
+     */
+  }
+
+  onMatchMediaHandler() {
+    /*
+      Nothing
+    */
+  }
+}
 
 export default App;
