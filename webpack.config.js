@@ -1,47 +1,47 @@
-const path = require('path');
-const config = require('./tasks/config');
+const path = require("path");
+const config = require("./tasks/config");
 
-const isDev = process.env.NODE_ENV === 'development';
+const isDev = process.env.NODE_ENV === "development";
 
 module.exports = {
   context: process.cwd(),
   mode: process.env.NODE_ENV,
   entry: {
-    app: config.scripts.input,
+    app: config.scripts.input
   },
   output: {
-    filename: '[name].js',
-    path: config.scripts.output,
+    filename: "[name].js",
+    path: config.scripts.output
   },
-  devtool: isDev ? 'source-map' : false,
+  devtool: isDev ? "source-map" : false,
   module: {
     rules: [
       {
         test: /\.tsx?$/,
         use: [
           {
-            loader: 'ts-loader',
+            loader: "ts-loader",
             options: {
-              transpileOnly: false,
-            },
-          },
+              transpileOnly: false
+            }
+          }
         ],
-        exclude: '/node_modules/',
+        exclude: /(node_modules)/
       },
       {
         test: /\.js$/,
-        loader: 'babel-loader',
-        exclude: '/node_modules/',
-      },
-    ],
+        loader: "babel-loader",
+        exclude: /(node_modules)/
+      }
+    ]
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js', '.json'],
+    extensions: [".tsx", ".ts", ".js", ".json"],
     alias: {
-      '@': path.resolve(__dirname, 'src'),
-    },
+      "@": path.resolve(__dirname, "src")
+    }
   },
   devServer: {
-    overlay: false,
-  },
+    overlay: false
+  }
 };
